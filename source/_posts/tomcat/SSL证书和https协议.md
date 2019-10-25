@@ -77,22 +77,25 @@ tomcat /conf/web.xml 中的 </welcome-file-list> 后面加上以下内容
 ### 解决办法
 强制突破IE浏览器兼容性视图
 几种形式：
-<meta http-equiv="X-UA-Compatible" content="IE=edge" >
-                          <meta http-equiv="X-UA-Compatible" content="IE=11" >
+
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" >
+    <meta http-equiv="X-UA-Compatible" content="IE=11" >
 或
-<%
-   response.addHeader("X-UA-Compatible", "edge");// (似乎不起作用)
-%>
+
+    <%
+       response.addHeader("X-UA-Compatible", "edge");// (似乎不起作用)
+    %>
 或
 nginx配置文件
-location / {
-	proxy_set_header  X-Real-IP       $remote_addr;
-	proxy_set_header  X-Forwarded-For $proxy_add_x_forwarded_for;
-	proxy_set_header  Host $http_host;
-	proxy_pass     http://127.0.0.1:8080;
-	client_max_body_size    1000m;
-	add_header "X-UA-Compatible" "IE=11";
-}
+
+    location / {
+        proxy_set_header  X-Real-IP       $remote_addr;
+        proxy_set_header  X-Forwarded-For $proxy_add_x_forwarded_for;
+        proxy_set_header  Host $http_host;
+        proxy_pass     http://127.0.0.1:8080;
+        client_max_body_size    1000m;
+        add_header "X-UA-Compatible" "IE=11";
+    }
 
 ## https协议下部分浏览器保存报错
 https携带参数限制
@@ -121,7 +124,23 @@ maxPostSize="-1"
    keystoreFile="conf/文件.jks" keystorePass="密码" 
 />
 ```
-https://blog.csdn.net/erlian1992/article/details/80209947
+[关于Tomcat的maxPostSize属性的配置需要注意的问题](https://blog.csdn.net/erlian1992/article/details/80209947)
+
+## 除了服务器对url长度有限制 浏览器也有
+所有参数都拼接到访问路径上，而且都是转码后的字符，参数非常多内容又非常长,从而导致了在某些浏览器上访问时报500，原因是url的长度超出了浏览器的限制，以下是各个浏览器的url长度限制
+
+Safari 最大长度限制为80000字节
+
+Opera 最大长度限制为190000字节
+
+Chrome 最大长度限制为8182字节
+
+IE 最大长度限制为2048字节
+
+Firefox 最大长度限制为65536字节
+### 解决办法
+javascript动态创建Form表单和表单项，然后提交表单请求，最后删除表单
+[js动态创建Form表单并提交](https://www.cnblogs.com/ryelqy/p/10104111.html)
 
 ## SSO单点登录出现文件
 ### 当时状况
@@ -139,3 +158,19 @@ https://blog.csdn.net/erlian1992/article/details/80209947
 7到8、9 配置文件需要加上URIEncoding="ISO-8859-1"
 7的request请求默认是ISO-8859-1
 8、9的request请求默认是UTF-8
+
+## 升级tomcat后 部分地址不可用 错误400
+[使用Tomcat传url地址中包含大括号{}的特殊字符无法识别问题多种解决方法](https://blog.csdn.net/ryandon/article/details/82664696)
+[tomcat升级到8之后URL中带的特殊字符如:^|报400问题解决方案](https://blog.csdn.net/Carino_U/article/details/78973120)
+url中不允许有 |，{，}等特殊字符
+仅在以下版本可用
+- 8.5.x for 8.5.12 onwards
+- 8.0.x for 8.0.42 onwards
+- 7.0.x for 7.0.76 onwards
+
+否则需要转义
+    
+    var url = encodeURI("http://localhost:8080/default/aaa.jsp?data={name:1}");
+或
+
+    encodeURIComponent()

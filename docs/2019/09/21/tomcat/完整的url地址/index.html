@@ -79,18 +79,18 @@
 
 
 
-<meta name="description" content="在编写接口代码时，尽量使用request中获取的完整地址确保拓展性 如https协议 域名 修改端口并注释上是请求哪的服务器如果是测试数据，记得注明，测试完注释 项目名（webapp文件夹名）String path = request.getContextPath(); URL地址String basePath = request.getScheme()+”://“+request.getServ">
+<meta name="description" content="在编写接口代码时，尽量使用request中获取的完整地址确保拓展性 如https协议 域名 修改端口并注释上是请求哪的服务器如果是测试数据，记得注明，测试完注释 项目名（webapp文件夹名）String path = request.getContextPath();URL地址String basePath = request.getScheme()+&amp;quot;://&amp;quot;+reques">
 <meta name="keywords" content="url">
 <meta property="og:type" content="article">
 <meta property="og:title" content="完整的url地址">
 <meta property="og:url" content="https://15135330395.github.io/blog/2019/09/21/tomcat/完整的url地址/index.html">
 <meta property="og:site_name" content="笔记本">
-<meta property="og:description" content="在编写接口代码时，尽量使用request中获取的完整地址确保拓展性 如https协议 域名 修改端口并注释上是请求哪的服务器如果是测试数据，记得注明，测试完注释 项目名（webapp文件夹名）String path = request.getContextPath(); URL地址String basePath = request.getScheme()+”://“+request.getServ">
+<meta property="og:description" content="在编写接口代码时，尽量使用request中获取的完整地址确保拓展性 如https协议 域名 修改端口并注释上是请求哪的服务器如果是测试数据，记得注明，测试完注释 项目名（webapp文件夹名）String path = request.getContextPath();URL地址String basePath = request.getScheme()+&amp;quot;://&amp;quot;+reques">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-09-24T11:25:38.722Z">
+<meta property="og:updated_time" content="2019-10-25T10:57:30.237Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="完整的url地址">
-<meta name="twitter:description" content="在编写接口代码时，尽量使用request中获取的完整地址确保拓展性 如https协议 域名 修改端口并注释上是请求哪的服务器如果是测试数据，记得注明，测试完注释 项目名（webapp文件夹名）String path = request.getContextPath(); URL地址String basePath = request.getScheme()+”://“+request.getServ">
+<meta name="twitter:description" content="在编写接口代码时，尽量使用request中获取的完整地址确保拓展性 如https协议 域名 修改端口并注释上是请求哪的服务器如果是测试数据，记得注明，测试完注释 项目名（webapp文件夹名）String path = request.getContextPath();URL地址String basePath = request.getScheme()+&amp;quot;://&amp;quot;+reques">
 
 
 
@@ -401,7 +401,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  87 字
+                  102 字
                 </span>
               
 
@@ -439,9 +439,8 @@
 
       
         <p>在编写接口代码时，尽量使用request中获取的完整地址<br>确保拓展性 如https协议 域名 修改端口<br>并注释上是请求哪的服务器<br>如果是测试数据，记得注明，测试完注释</p>
-<h3 id="项目名（webapp文件夹名）"><a href="#项目名（webapp文件夹名）" class="headerlink" title="项目名（webapp文件夹名）"></a>项目名（webapp文件夹名）</h3><p>String path = request.getContextPath();</p>
-<h3 id="URL地址"><a href="#URL地址" class="headerlink" title="URL地址"></a>URL地址</h3><p>String basePath = request.getScheme()+”://“+request.getServerName()+”:”+request.getServerPort()+path+”/“;<br><a href="<%=basePath%>"></a></p>
-
+<h3 id="项目名（webapp文件夹名）"><a href="#项目名（webapp文件夹名）" class="headerlink" title="项目名（webapp文件夹名）"></a>项目名（webapp文件夹名）</h3><pre><code>String path = request.getContextPath();</code></pre><h3 id="URL地址"><a href="#URL地址" class="headerlink" title="URL地址"></a>URL地址</h3><pre><code>String basePath = request.getScheme()+&quot;://&quot;+request.getServerName()+&quot;:&quot;+request.getServerPort()+path+&quot;/&quot;;
+&lt;a href=&quot;&lt;%=basePath%&gt;&quot; /&gt;</code></pre>
       
     </div>
     
@@ -500,8 +499,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/blog/2019/09/21/oracle/导入导出/" rel="next" title="导入导出">
-                <i class="fa fa-chevron-left"></i> 导入导出
+              <a href="/blog/2019/09/21/tomcat/指定端口、修改jdk/" rel="next" title="指定端口、修改jdk">
+                <i class="fa fa-chevron-left"></i> 指定端口、修改jdk
               </a>
             
           </div>
@@ -510,8 +509,8 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/blog/2019/09/21/github/github pages博客/" rel="prev" title="github pages博客">
-                github pages博客 <i class="fa fa-chevron-right"></i>
+              <a href="/blog/2019/09/21/tomcat/SSL证书和https协议/" rel="prev" title="SSL证书和https协议">
+                SSL证书和https协议 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -594,7 +593,7 @@
               
                 <a href="/blog/archives/">
               
-                  <span class="site-state-item-count">28</span>
+                  <span class="site-state-item-count">29</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -616,7 +615,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/blog/tags/index.html">
-                  <span class="site-state-item-count">30</span>
+                  <span class="site-state-item-count">31</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>

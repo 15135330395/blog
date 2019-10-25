@@ -1,3 +1,10 @@
+---
+title: maven
+date: 2019-09-27 00:01:00
+tags: [maven]
+categories: maven
+---
+
 ## 修改maven的配置文件
 
 	E:\maven\apache-maven-3.5.4\conf\settings.xml
@@ -47,9 +54,11 @@
 	本地库默认位置：C:\Users\Administrator\.m2\repository
 
 
-setting配置idea中maven安装路径
+## 开发工具中修改maven配置
+idea中 setting配置 maven安装路径
 
 ## 新建maven项目
+### pom文件
 	GroupID：包名
 	ArtifactID：项目名
 
@@ -67,7 +76,6 @@ maven项目中的配置文件pom.xml
             <version>1.2.56</version>
         </dependency>
     </dependencies>
-
 
 	
 
@@ -130,4 +138,4 @@ idea中的tomcat7插件
 
 
 
-![1556005727925](1556005727925.png)
+![1556005727925](maven/1556005727925.png)

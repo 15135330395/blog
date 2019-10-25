@@ -1,9 +1,20 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[JS介绍]]></title>
+    <url>%2Fblog%2F2019%2F09%2F27%2FJS%E5%8F%8AJquery%2FJS%E4%BB%8B%E7%BB%8D%2F</url>
+    <content type="text"><![CDATA[JS组成 core 文档对象 浏览器对象 配置位置页面加载顺序从上到下 位于body最后 打开页面先加载html和css 提升用户体验 公共JS部分封装在一个js文件中易维护、可缓存 特有方法字符串： 数字： 数组： 和Java方法不同： null、””、undefined区别]]></content>
+      <categories>
+        <category>JS及Jquery</category>
+      </categories>
+      <tags>
+        <tag>JS介绍</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[Redis的使用]]></title>
     <url>%2Fblog%2F2019%2F09%2F25%2Fredis%2FRedis%E7%9A%84%E4%BD%BF%E7%94%A8%2F</url>
-    <content type="text"><![CDATA[NOSQLNOSQL和关系型数据库比较优点 成本：nosql数据库简单易部署，基本都是开源软件，不需要像使用oracle那样花费大量成本购买使用，相比关系型数据库价格便宜。 查询速度：nosql数据库将数据存储于缓存之中，关系型数据库将数据存储在硬盘中，自然查询速度远不及nosql数据库。 存储数据的格式：nosql的存储格式是key，value形式、文档形式、图片形式等等，所以可以存储基础类型以及对象或者是集合等各种格式，而数据库则只支持基础类型。 扩展性：关系型数据库有类似join这样的多表查询机制的限制导致扩展很艰难。 缺点 维护的工具和资料有限，因为nosql是属于新的技术，不能和关系型数据库十几年的技术同日而语。 不提供对sql的支持，如果不支持sql这样的工业标准，将产生一定用户的学习和使用成本。 不提供关系型数据库对事务的处理。 非关系型数据库的优势： 性能NOSQL是基于键值对的，可以想象成表中的主键和值的对应关系，而且不需要经过SQL层的解析，所以性能非常高。 可扩展性同样也是因为基于键值对，数据之间没有耦合性，所以非常容易水平扩展。 关系型数据库的优势： 复杂查询可以用SQL语句方便的在一个表以及多个表之间做非常复杂的数据查询。 事务支持使得对于安全性能很高的数据访问要求得以实现。对于这两类数据库，对方的优势就是自己的弱势，反之亦然。 总结关系型数据库与NoSQL数据库并非对立而是互补的关系，即通常情况下使用关系型数据库，在适合使用NoSQL的时候使用NoSQL数据库，让NoSQL数据库对关系型数据库的不足进行弥补。一般会将数据存储在关系型数据库中，在nosql数据库中备份存储关系型数据库的数据 主流的NOSQL产品 键值(Key-Value)存储数据库 相关产品： Tokyo Cabinet/Tyrant、Redis、Voldemort、Berkeley DB 典型应用： 内容缓存，主要用于处理大量数据的高访问负载。 数据模型： 一系列键值对 优势： 快速查询 劣势： 存储的数据缺少结构化 列存储数据库 相关产品：Cassandra, HBase, Riak 典型应用：分布式的文件系统 数据模型：以列簇式存储，将同一列数据存在一起 优势：查找速度快，可扩展性强，更容易进行分布式扩展 劣势：功能相对局限 文档型数据库 相关产品：CouchDB、MongoDB 典型应用：Web应用（与Key-Value类似，Value是结构化的） 数据模型： 一系列键值对 优势：数据结构要求不严格 劣势： 查询性能不高，而且缺乏统一的查询语法 图形(Graph)数据库 相关数据库：Neo4J、InfoGrid、Infinite Graph 典型应用：社交网络 数据模型：图结构 优势：利用图结构相关算法。 劣势：需要对整个图做计算才能得出结果，不容易做分布式的集群方案。 应用场景网上 缓存（数据查询、短链接、新闻内容、商品内容等）（最多） 聊天室的在线好友列表 任务队列（秒杀、抢购、12306等） 应用排行榜 网站访问统计 数据过期处理（可以精确到毫秒） 分布式集群框架中的session分离 推测 当前登录人员信息（统计所有登陆人员）————&gt; 所有的用户及其权限 和组织机构 数据字典 菜单 union表（相当于统计计算 但要求可靠性） 当前流程环节 通知 session 发送邮件 短信的验证码及其发送间隔期限 有期限的东西 实时聊天 所有的统计登录访问次数 简单的消息队列 放到缓存中的东西 不能用redis： 数据量太大、数据访问频率非常低的业务都不适合使用Redis，数据太大会增加成本，访问频率太低，保存在内存中纯属浪费资源。 存储结构及指令使用Redis支持类型1．String（字符串）命令： 增：set 键 字符串值查询：GET 键返回key对应字符串值的指定字符：GETRANGE 键 开始 结束（包含）设置并返回旧值：GETSET 键 新值获取/设置多个key：MGET 键1 键2 …./MSET 键1 值1 键2 值2 ….当value为整数数据时，可以设为自增：INCR 键 / INCRBY 键 步长 自减：DECR 键 / DECR 键 步长向键值的末尾追加value。如果键不存在则将该键的值设置为value，即相当于 SET key value。返回值是追加后字符串的总长度：APPEND 键 值获得字符串长度 键不存在则返回0：STRLEN 键 2．Hash（哈希，key-value，适合存储对象 key是对象 value是属性 字段值只能是字符串类型）命令： 增：hmset 键 字段1 字段值1 字段2 字段值2 …. HSET 键 字段 字段值（只能设置一个字段值 不区分插入和更新操作 插入返回1 更新返回0）删：HDEL 键 字段1 字段2 ….查：HGET 键 字段 HMGET 键 字段1 字段2 ….（获取多个字段值） HGETALL 键（获取所有的字段和字段值）判断字段是否存在：HEXISTS 键 字段只获取字段名或字段值：HKEYS 键 / HVALS 键获取字段数量：HLEN 键 3．List（列表 本质是双向链表）命令： 向列表左/右增加元素：lpush/RPUSH 键 值1 值2 ….移出并获取列表的第一个/最后一个元素，等待时间设置为秒，阻塞：BLPOP/BRPOP 键 时间求长度：LLEN 键移出并获取列表的第一个/最后一个元素：LPOP/RPOP 键查看列表：LRANGE 键 开始 结束 4．Set（集合，无序不重复）命令： 增：sadd 键 值1 值2 ….获取数量：SCARD 键获得所有元素：SMEMBERS 键删除：SREM 键 值1 值2 ….判断元素是否在集合中：SISMEMBER 键 值1差集/交集/并集：SDIFF/SINTER/SUNION 键1 键2返回并移除指定set中的随机某个元素：SPOP 键 5．zset(sorted set：有序值不重复 序/分数可以相同)命令： 增：zadd 键 序1 值 序2 值2 ….获得有序集合数量：ZCARD 键获得有序集合指定范围的从小到大的值：ZRANGE 键 开始 结束（包含）获得有序集合指定范围的从大到小的值：ZREVRANGE 键 开始 结束（包含）WITHSCORES（获得分数）获取元素的分数：ZSCORE 键 值删除：ZREM 键 值1 值2 …. 通用：命令： 删除键：DEL 键键是否存在：EXISTS 键查看所有满足条件的key：KEYS 键开头*（模板）重命名：RENAME 旧键 新键显示指定key的数据类型：type key设置key的有效期，单位为seconds：EXPIRE 键 时间删除key的有效期，变为永久有效：PERSIST 键返回key的剩余有效时间，pttl返回毫秒，ttl返回秒：TTL/PTTL 键 事务 开启事务：MULTI触发事务，提交：EXEC取消事务，清除：DISCARD当某个事务需要按条件执行时，就要使用这个命令将给定的键设置为受监控的状态：watch 键1 键2 ….（可以实现乐观锁）清除所有先前为一个事务监控的键：unwatch Redis不支持事务回滚1.大多数事务失败是因为语法错误或者类型错误，这两种错误，在开发阶段都是可以预见的（旧版本 如果出现异常 则忽略）2.为了性能方面就忽略了事务回滚 从 Redis 2.6.5 开始, 在命令排队期间发生错误，Redis会拒绝执行 EXEC，并返回一个错误，然后自动放弃这个事务。在 Redis 2.6.5 之前，EXEC调用后，会执行排队成功的命令，忽略失败的命令。 单个 Redis 命令的执行是原子性的，但 Redis 没有在事务上增加任何维持原子性的机制，所以 Redis 事务的执行并不是原子性的。事务可以理解为一个打包的批量执行脚本，但批量指令并非原子化的操作，中间某条指令的失败不会导致前面已做指令的回滚，也不会造成后续的指令不做。 RedisUtils.java12 Redis可视化连接工具花钱的 但比较火redis desktop manager（RDM） 不花钱的https://github.com/qishibo/AnotherRedisDesktopManager/ （比较简洁好看）https://github.com/caoxinyu/RedisClient （丑了点）Web Redis Manager（管理页面是layui） https://github.com/yswenli/WebRedisManager Jedis普通环境Jedis 包：jedis-2.9.0.jar + 数据库连接池包：commons-pool2 12345678// 1.设置IP地址和端口Jedis jedis = new Jedis("localhost", 6379);// 2.设置数据jedis.set("key1", "value1");// 3.获得数据String value = jedis.get("key1");// 4.释放资源jedis.close(); 可以封装成Utils工具类 1private Jedis jedis = new Jedis("localhost", 6379); 连接池连接 123456789101112131415161718192021222324252627// 1.获得连接池配置对象，设置配置项JedisPoolConfig config = new JedisPoolConfig();// 最大连接数和最大空闲连接数config.setMaxTotal(30);config.setMaxIdle(10);// 2.创建连接池对象JedisPool jedisPool = new JedisPool(config,"127.0.0.1", 6379);// 3.从连接池中获得连接Jedis jedis = null;try&#123; jedis = jedisPool.getResource(); // 4.设置数据 jedis.set("key1", "value1"); // 5.获得数据 String value = jedis.get("key1");&#125; catch (Exception e)&#123; e.printStatckTrace();&#125; finally &#123; // 6.关闭连接 if(jedis != null)&#123; jedis.close(); &#125; // 7.关闭连接池 if(jedisPool != null)&#123; jedisPool.close(); &#125;&#125; spring整合（本身线程不安全 需要数据库连接池的支持）Jedis+pool spring环境的高级封装RedisTemplate配置redis.properties：#访问地址redis.host=127.0.0.1#访问端口redis.port=6379#注意，如果没有password，此处不设置值，但这一项要保留redis.password=#最大空闲数，数据库连接的最大空闲时间。超过空闲时间，数据库连接将被标记为不可用，然后被释放。设为0表示无限制。redis.maxIdle=300#连接池的最大数据库连接数。设为0表示无限制redis.maxTotal=600#最大建立连接等待时间。如果超过此时间将接到异常。设为-1表示无限制。redis.maxWait=1000#在borrow一个jedis实例时，是否提前进行alidate操作；如果为true，则得到的jedis实例均是可用的；redis.testOnBorrow=true spring-redis.xml： &lt;context:property-placeholder location=”classpath:redis.properties” file-encoding=”utf-8” ignore-unresolvable=”true”/&gt; 在applactionContext.xml引入spring-redis.xml springboot环境整合可以直接注入RedisTemplate + reids配置类 123456789101112131415&lt;!-- redis --&gt;&lt;dependency&gt; &lt;groupId&gt;org.springframework.boot&lt;/groupId&gt; &lt;artifactId&gt;spring-boot-starter-data-redis&lt;/artifactId&gt; &lt;exclusions&gt; &lt;exclusion&gt; &lt;groupId&gt;redis.clients&lt;/groupId&gt; &lt;artifactId&gt;jedis&lt;/artifactId&gt; &lt;/exclusion&gt; &lt;exclusion&gt; &lt;groupId&gt;io.lettuce&lt;/groupId&gt; &lt;artifactId&gt;lettuce-core&lt;/artifactId&gt; &lt;/exclusion&gt; &lt;/exclusions&gt;&lt;/dependency&gt; application.yml：spring: redis: database: 0 host: localhost port: 6379 password: timeout: 0 jedis: pool: max-active: 8 max-wait: 20000 max-idle: 20 RedisConfiguration.java：序列化的配置// StringRedisSerializer\JdkSerializationRedisSerializer进行序列化的，springboot是通过Jackson2JsonRedisSerializer进行序列化的]]></content>
+    <content type="text"><![CDATA[NOSQLNOSQL和关系型数据库比较优点 成本：nosql数据库简单易部署，基本都是开源软件，不需要像使用oracle那样花费大量成本购买使用，相比关系型数据库价格便宜。 查询速度：nosql数据库将数据存储于缓存之中，关系型数据库将数据存储在硬盘中，自然查询速度远不及nosql数据库。 存储数据的格式：nosql的存储格式是key，value形式、文档形式、图片形式等等，所以可以存储基础类型以及对象或者是集合等各种格式，而数据库则只支持基础类型。 扩展性：关系型数据库有类似join这样的多表查询机制的限制导致扩展很艰难。 缺点 维护的工具和资料有限，因为nosql是属于新的技术，不能和关系型数据库十几年的技术同日而语。 不提供对sql的支持，如果不支持sql这样的工业标准，将产生一定用户的学习和使用成本。 不提供关系型数据库对事务的处理。 非关系型数据库的优势： 性能NOSQL是基于键值对的，可以想象成表中的主键和值的对应关系，而且不需要经过SQL层的解析，所以性能非常高。 可扩展性同样也是因为基于键值对，数据之间没有耦合性，所以非常容易水平扩展。 关系型数据库的优势： 复杂查询可以用SQL语句方便的在一个表以及多个表之间做非常复杂的数据查询。 事务支持使得对于安全性能很高的数据访问要求得以实现。对于这两类数据库，对方的优势就是自己的弱势，反之亦然。 总结关系型数据库与NoSQL数据库并非对立而是互补的关系，即通常情况下使用关系型数据库，在适合使用NoSQL的时候使用NoSQL数据库，让NoSQL数据库对关系型数据库的不足进行弥补。一般会将数据存储在关系型数据库中，在nosql数据库中备份存储关系型数据库的数据 主流的NOSQL产品 键值(Key-Value)存储数据库 相关产品： Tokyo Cabinet/Tyrant、Redis、Voldemort、Berkeley DB 典型应用： 内容缓存，主要用于处理大量数据的高访问负载。 数据模型： 一系列键值对 优势： 快速查询 劣势： 存储的数据缺少结构化 列存储数据库 相关产品：Cassandra, HBase, Riak 典型应用：分布式的文件系统 数据模型：以列簇式存储，将同一列数据存在一起 优势：查找速度快，可扩展性强，更容易进行分布式扩展 劣势：功能相对局限 文档型数据库 相关产品：CouchDB、MongoDB 典型应用：Web应用（与Key-Value类似，Value是结构化的） 数据模型： 一系列键值对 优势：数据结构要求不严格 劣势： 查询性能不高，而且缺乏统一的查询语法 图形(Graph)数据库 相关数据库：Neo4J、InfoGrid、Infinite Graph 典型应用：社交网络 数据模型：图结构 优势：利用图结构相关算法。 劣势：需要对整个图做计算才能得出结果，不容易做分布式的集群方案。 应用场景网上 缓存（数据查询、短链接、新闻内容、商品内容等）（最多） 聊天室的在线好友列表 任务队列（秒杀、抢购、12306等） 应用排行榜 网站访问统计 数据过期处理（可以精确到毫秒） 分布式集群框架中的session分离 推测 当前登录人员信息（统计所有登陆人员）————&gt; 所有的用户及其权限 和组织机构 数据字典 菜单 union表（相当于统计计算 但要求可靠性） 当前流程环节 通知 session 发送邮件 短信的验证码及其发送间隔期限 有期限的东西 实时聊天 所有的统计登录访问次数 简单的消息队列 放到缓存中的东西 不能用redis： 数据量太大、数据访问频率非常低的业务都不适合使用Redis，数据太大会增加成本，访问频率太低，保存在内存中纯属浪费资源。 存储结构及指令使用Redis支持类型1．String（字符串）命令： 增：set 键 字符串值查询：GET 键返回key对应字符串值的指定字符：GETRANGE 键 开始 结束（包含）设置并返回旧值：GETSET 键 新值获取/设置多个key：MGET 键1 键2 …./MSET 键1 值1 键2 值2 ….当value为整数数据时，可以设为自增：INCR 键 / INCRBY 键 步长 自减：DECR 键 / DECR 键 步长向键值的末尾追加value。如果键不存在则将该键的值设置为value，即相当于 SET key value。返回值是追加后字符串的总长度：APPEND 键 值获得字符串长度 键不存在则返回0：STRLEN 键 2．Hash（哈希，key-value，适合存储对象 key是对象 value是属性 字段值只能是字符串类型）命令： 增：hmset 键 字段1 字段值1 字段2 字段值2 …. HSET 键 字段 字段值（只能设置一个字段值 不区分插入和更新操作 插入返回1 更新返回0）删：HDEL 键 字段1 字段2 ….查：HGET 键 字段 HMGET 键 字段1 字段2 ….（获取多个字段值） HGETALL 键（获取所有的字段和字段值）判断字段是否存在：HEXISTS 键 字段只获取字段名或字段值：HKEYS 键 / HVALS 键获取字段数量：HLEN 键 3．List（列表 本质是双向链表）命令： 向列表左/右增加元素：lpush/RPUSH 键 值1 值2 ….移出并获取列表的第一个/最后一个元素，等待时间设置为秒，阻塞：BLPOP/BRPOP 键 时间求长度：LLEN 键移出并获取列表的第一个/最后一个元素：LPOP/RPOP 键查看列表：LRANGE 键 开始 结束 4．Set（集合，无序不重复）命令： 增：sadd 键 值1 值2 ….获取数量：SCARD 键获得所有元素：SMEMBERS 键删除：SREM 键 值1 值2 ….判断元素是否在集合中：SISMEMBER 键 值1差集/交集/并集：SDIFF/SINTER/SUNION 键1 键2返回并移除指定set中的随机某个元素：SPOP 键 5．zset(sorted set：有序值不重复 序/分数可以相同)命令： 增：zadd 键 序1 值 序2 值2 ….获得有序集合数量：ZCARD 键获得有序集合指定范围的从小到大的值：ZRANGE 键 开始 结束（包含）获得有序集合指定范围的从大到小的值：ZREVRANGE 键 开始 结束（包含）WITHSCORES（获得分数）获取元素的分数：ZSCORE 键 值删除：ZREM 键 值1 值2 …. 通用：命令： 删除键：DEL 键键是否存在：EXISTS 键查看所有满足条件的key：KEYS 键开头*（模板）重命名：RENAME 旧键 新键显示指定key的数据类型：type key设置key的有效期，单位为seconds：EXPIRE 键 时间删除key的有效期，变为永久有效：PERSIST 键返回key的剩余有效时间，pttl返回毫秒，ttl返回秒：TTL/PTTL 键 事务 开启事务：MULTI触发事务，提交：EXEC取消事务，清除：DISCARD当某个事务需要按条件执行时，就要使用这个命令将给定的键设置为受监控的状态：watch 键1 键2 ….（可以实现乐观锁）清除所有先前为一个事务监控的键：unwatch Redis不支持事务回滚1.大多数事务失败是因为语法错误或者类型错误，这两种错误，在开发阶段都是可以预见的（旧版本 如果出现异常 则忽略）2.为了性能方面就忽略了事务回滚 从 Redis 2.6.5 开始, 在命令排队期间发生错误，Redis会拒绝执行 EXEC，并返回一个错误，然后自动放弃这个事务。在 Redis 2.6.5 之前，EXEC调用后，会执行排队成功的命令，忽略失败的命令。 单个 Redis 命令的执行是原子性的，但 Redis 没有在事务上增加任何维持原子性的机制，所以 Redis 事务的执行并不是原子性的。事务可以理解为一个打包的批量执行脚本，但批量指令并非原子化的操作，中间某条指令的失败不会导致前面已做指令的回滚，也不会造成后续的指令不做。 RedisUtils.java12 Redis可视化连接工具花钱的 但比较火redis desktop manager（RDM） 不花钱的AnotherRedisDesktopManager （比较简洁好看）RedisClient （丑了点）Web Redis Manager（管理页面是layui） Jedis普通环境Jedis 包：jedis-2.9.0.jar + 数据库连接池包：commons-pool2 12345678// 1.设置IP地址和端口Jedis jedis = new Jedis("localhost", 6379);// 2.设置数据jedis.set("key1", "value1");// 3.获得数据String value = jedis.get("key1");// 4.释放资源jedis.close(); 可以封装成Utils工具类 1private Jedis jedis = new Jedis("localhost", 6379); 连接池连接 123456789101112131415161718192021222324252627// 1.获得连接池配置对象，设置配置项JedisPoolConfig config = new JedisPoolConfig();// 最大连接数和最大空闲连接数config.setMaxTotal(30);config.setMaxIdle(10);// 2.创建连接池对象JedisPool jedisPool = new JedisPool(config,"127.0.0.1", 6379);// 3.从连接池中获得连接Jedis jedis = null;try&#123; jedis = jedisPool.getResource(); // 4.设置数据 jedis.set("key1", "value1"); // 5.获得数据 String value = jedis.get("key1");&#125; catch (Exception e)&#123; e.printStatckTrace();&#125; finally &#123; // 6.关闭连接 if(jedis != null)&#123; jedis.close(); &#125; // 7.关闭连接池 if(jedisPool != null)&#123; jedisPool.close(); &#125;&#125; spring整合（本身线程不安全 需要数据库连接池的支持）Jedis+pool spring环境的高级封装RedisTemplate配置redis.properties：#访问地址redis.host=127.0.0.1#访问端口redis.port=6379#注意，如果没有password，此处不设置值，但这一项要保留redis.password=#最大空闲数，数据库连接的最大空闲时间。超过空闲时间，数据库连接将被标记为不可用，然后被释放。设为0表示无限制。redis.maxIdle=300#连接池的最大数据库连接数。设为0表示无限制redis.maxTotal=600#最大建立连接等待时间。如果超过此时间将接到异常。设为-1表示无限制。redis.maxWait=1000#在borrow一个jedis实例时，是否提前进行alidate操作；如果为true，则得到的jedis实例均是可用的；redis.testOnBorrow=true spring-redis.xml： &lt;context:property-placeholder location=”classpath:redis.properties” file-encoding=”utf-8” ignore-unresolvable=”true”/&gt; 在applactionContext.xml引入spring-redis.xml springboot环境整合可以直接注入RedisTemplate + reids配置类 123456789101112131415&lt;!-- redis --&gt;&lt;dependency&gt; &lt;groupId&gt;org.springframework.boot&lt;/groupId&gt; &lt;artifactId&gt;spring-boot-starter-data-redis&lt;/artifactId&gt; &lt;exclusions&gt; &lt;exclusion&gt; &lt;groupId&gt;redis.clients&lt;/groupId&gt; &lt;artifactId&gt;jedis&lt;/artifactId&gt; &lt;/exclusion&gt; &lt;exclusion&gt; &lt;groupId&gt;io.lettuce&lt;/groupId&gt; &lt;artifactId&gt;lettuce-core&lt;/artifactId&gt; &lt;/exclusion&gt; &lt;/exclusions&gt;&lt;/dependency&gt; application.yml：spring: redis: database: 0 host: localhost port: 6379 password: timeout: 0 jedis: pool: max-active: 8 max-wait: 20000 max-idle: 20 RedisConfiguration.java：序列化的配置// StringRedisSerializer\JdkSerializationRedisSerializer进行序列化的，springboot是通过Jackson2JsonRedisSerializer进行序列化的]]></content>
       <categories>
         <category>redis</category>
       </categories>
@@ -12,37 +23,47 @@
       </tags>
   </entry>
   <entry>
-    <title><![CDATA[SSL证书和https协议]]></title>
-    <url>%2Fblog%2F2019%2F09%2F21%2Ftomcat%2FSSL%E8%AF%81%E4%B9%A6%E5%92%8Chttps%E5%8D%8F%E8%AE%AE%2F</url>
-    <content type="text"><![CDATA[配置https协议​ 1.单向认证，就是传输的数据加密过了，但是不会校验客户端的来源​ 2.双向认证，要求客户端浏览器没有导入客户端证书，是访问不了web系统的，找不到地址，双向认证的安全级别较高 方法1.获得证书购买或自制（购买 阿里云免费申请1年https://www.aliyun.com/product/cas JDK自带的keytool自己生成） JDK自带的keytool自己生成步骤： 1.打开 JDK 自带的 keytool 目录 2.按住 Shift 键，同时右键点击空白处。 3.cmd窗口。输入keytool -genkeypair -alias “别名” -keyalg “RSA” -keystore “D:\生成地址.keystore” -validity 36500（有效期100年 默认90天） 4.输入两次密钥、名字与姓氏:192.168.0.110或域名（以后访问的域名或IP地址，非常重要，证书和域名或IP绑定）、 剩下随便填 2.应用证书到Tomcat（SSL证书文件后缀可能是.keystore .pfx .jks 不影响配置 可以互相转换）打开 Tomcat 配置文件 conf\server.xml取消注释，并添加两个属性 keystoreFile，keystorePass。 8.5之前 8.5之后 (阿里云申请的配置keystoreFile是PFX证书文件地址，keystorePass是阿里云的订单号，keystoreType直接写PKCS12) 3.测试启动tomcat并访问https://127.0.0.1:8443如果把所有的8443改为443 则访问时 不需要加端口 即https://127.0.0.1 4.使用自己生成的证书会遇到几个问题浏览器会对 HTTPS 使用危险标识。(我们开启 HTTPS 本意是为了更安全，增加用户信心。但是浏览器使用危险标识会适得其反，吓跑用户。)浏览器默认不会加载非HTTPS域名下的javascript移动设备显示页面空白(手机浏览器打开页面，也会像桌面浏览器一样弹出是否加载不受信任的页面，在微信中打开则会一片空白)可以将证书的详细信息页面导出（复制到文件），导入浏览器（Internet选项——内容——证书——受信任的根证书颁发机构——导入证书） 5.配置强制访问https（按需 没用过）tomcat /conf/web.xml 中的 后面加上以下内容 123456789101112131415&lt;login-config&gt; &lt;!-- Authorization setting for SSL --&gt; &lt;auth-method&gt;CLIENT-CERT&lt;/auth-method&gt; &lt;realm-name&gt;Client Cert Users-only Area&lt;/realm-name&gt; &lt;/login-config&gt; &lt;security-constraint&gt; &lt;!-- Authorization setting for SSL --&gt; &lt;web-resource-collection &gt; &lt;web-resource-name &gt;SSL&lt;/web-resource-name&gt; &lt;url-pattern&gt;/*&lt;/url-pattern&gt; &lt;/web-resource-collection&gt; &lt;user-data-constraint&gt; &lt;transport-guarantee&gt;CONFIDENTIAL&lt;/transport-guarantee&gt; &lt;/user-data-constraint&gt; &lt;/security-constraint&gt; 完成以上步骤后，在浏览器中输入http的访问地址也会自动转换为https了 换成https协议以后可能出现的问题换https之前 系统正常，换了以后 不兼容IE9以下因为浏览器的兼容模式是根据域名判断的 之前用的IP地址访问，不会用到兼容模式，用域名访问就会用到兼容模式 当时情况1.必须使用IE浏览器2.必须兼容IE73.必须使用特定域名访问（兼容性通过主域名判断 即 powerchina.cn） 解决办法强制突破IE浏览器兼容性视图几种形式： 或 或 nginx配置文件 location / { proxy_set_header X-Real-IP $remote_addr; proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for; proxy_set_header Host $http_host; proxy_pass http://127.0.0.1:8080; client_max_body_size 1000m; add_header "X-UA-Compatible" "IE=11"; } https协议下部分浏览器保存报错https携带参数限制 当时状况1.http协议正常2.https协议下谷歌浏览器数据保存时 弹窗信息是错误页面 但保存正常IE浏览器数据保存时 ajax返回信息是错误页面tomcat控制台报错信息是 org.apache.axis2.transport.http.CommonsHTTPTransport org.apache.axis2.AxisFault 但没有用到关于web service 原因传输数据量过大 50到100条数据 但主要是大段的文字（Post提交本身对于参数的长度没有限制，HTTP协议也没有限制）tomcat有限制缺省的情况下是maxPostSize=”2097152” 2M 单位是Byte 解决办法1.保存时 去掉没用的数据2.修改server.xml文件maxPostSize=”-1” 12345&lt;Connector port=&quot;8443&quot; protocol=&quot;org.apache.coyote.http11.Http11Protocol&quot; maxThreads=&quot;150&quot; SSLEnabled=&quot;true&quot; scheme=&quot;https&quot; secure=&quot;true&quot; clientAuth=&quot;false&quot; sslProtocol=&quot;TLS&quot; maxPostSize=&quot;-1&quot; keystoreFile=&quot;conf/文件.jks&quot; keystorePass=&quot;密码&quot; /&gt; https://blog.csdn.net/erlian1992/article/details/80209947 SSO单点登录出现文件当时状况单独访问https的项目正常，从门户系统跳转出现问题 解决办法查看报错信息1.如果是单点登录的验证出现问题 则查看单点登录的配置文件 sso-conf（本地可能没有 在服务器上）2.单点系统中用户名修改 但本系统没改 导致用户名不匹配 则重新配置组织结构里的用户名 tomcat7漏洞过多解决办法升级tomcat 换成97到8、9 配置文件需要加上URIEncoding=”ISO-8859-1”7的request请求默认是ISO-8859-18、9的request请求默认是UTF-8]]></content>
+    <title><![CDATA[oracle的常用SQL]]></title>
+    <url>%2Fblog%2F2019%2F09%2F21%2Foracle%2Foracle%E7%9A%84%E5%B8%B8%E7%94%A8SQL%2F</url>
+    <content type="text"><![CDATA[oracle分页SELECT * FROM ( SELECT rownum rn ,t1.* FROM OA_QY_KQGL_XJTJB_SUB t1 , ORG_ORGANIZATION t2 WHERE rownum &lt;= (1+1) * 15 and t1.bmname=t2.orgname and t1.mid=461 order by t2.sortno ) WHERE rn &gt; 1 * 15oracle查询 数据断层主键SELECT ROWNUM FROM ALL_OBJECTS WHERE ROWNUM &lt; = (SELECT MAX(t.wfhisid) FROM ERP_WORKFLOW_HIS t) MINUS SELECT t.wfhisid FROM ERP_WORKFLOW_HIS toracle查询某个列名在哪些表中select column_name,table_name from user_tab_columns where lower(column_name)= lower(&apos;列名&apos;)Oracle创建序列缓存CREATE SEQUENCE --序列名称 INCREMENT BY 步长 START WITH 起始值 MAXVALUE 最大值 /NOMAXvalue --无最大值 MINVALUE 最小值 CYCLE/NOCYCLE --是否循环 最大值用完 是否从start with开始 否则从MINVALUE开始（NOCYCLE和NOMAXvalue一起用） CACHE 缓存大小 --会造成跳号 Order/NOORDER; --排不排序 一般不排序 sequence number是timestamp才排序Oracle使用序列缓存CurrVal：返回 sequence的当前值 NextVal：增加sequence的值，然后返回 增加后sequence值 SELECT 序列名称.CurrVal FROM 表 insert into 表名(id,name)values(序列名称.Nextval,&apos;sequence 插入测试&apos;); 注：必须先NextVal才能CurrVal ； 在同一个语句里面使用多个NEXTV，其值不一样（++i）创建触发器做自增主键create or replace trigger 触发器名称 before insert on 表 --before:执行DML等操作之前触发 for each row --行级触发器 begin select 序列名.nextval into :new.id from dual; end;常用SQLto_char(LOANDATE,&apos;yyyy-MM-dd&apos;) LOANDATE, ( SELECT e.dictname FROM eos_dict_entry e WHERE e.dicttypeid = &apos;IPM_ZHBG_SQDLX&apos; AND e.dictid = a.APPLICATIONTYPE ) APPLICATIONTYPE SELECT LOWER(&apos;IPM_CONTRACT_SALE_KXXX&apos;) FROM dual SELECT &apos;$F{&apos;||UPPER(&apos;ms&apos;)||&apos;}&apos; FROM dual查询重复数据select * from 重复记录字段 in ( select 重复记录字段 form 数据表 group by 重复记录字段 having count(重复记录字段)&gt;1)Oracle查询操作日志SELECT t.SQL_TEXT, t.FIRST_LOAD_TIME FROM v$sqlarea t WHERE t.FIRST_LOAD_TIME LIKE &apos;2019-07-18%&apos; AND lower( t.SQL_TEXT ) LIKE &apos;%prp_car_%&apos; AND lower( t.SQL_TEXT ) NOT LIKE &apos;%select%&apos; ORDER BY t.FIRST_LOAD_TIME DESCoracle闪回alter table 表名 enable row movement --恢复表数据 flashback table 表名 to timestamp to_timestamp(删除时间点&apos;,&apos;yyyy-mm-dd hh24:mi:ss&apos;) --关闭行移动功能 alter table 表名 disable row movement##oracle查询最近删除的数据 SELECT * FROM 表 AS OF TIMESTAMP sysdate-1/24 where 条件 整理角色用户权限with tab1 as ( SELECT a.ROLE_ID 角色id, a.ROLE_NAME 角色名, WM_CONCAT(c.empname) 当前用户 FROM CAP_ROLE a LEFT JOIN cap_partyauth b ON a.ROLE_ID = b.ROLE_ID , ORG_EMPLOYEE c WHERE b.PARTY_ID = to_char(c.empid) group by a.ROLE_ID, a.ROLE_NAME ORDER BY a.ROLE_ID ), tab2 as( select PARTY_ID,wmsys.wm_concat(funcname) 菜单名 from (select a.PARTY_ID, b.funcname, sum(lengthb(b.funcname||&apos;,&apos;)) over(partition by PARTY_ID ) descr_length from CAP_RESAUTH a LEFT JOIN APP_FUNCTION b ON a.RES_ID = b.funccode ) where descr_length &lt; 4000 group by PARTY_ID) select tab1.角色ID,tab1.角色名,tab1.当前用户,tab2.菜单名 from tab1 LEFT JOIN tab2 on tab1.角色id=tab2.PARTY_ID列说明无效 需要查看oracle关键字select * from v$reserved_words;]]></content>
       <categories>
-        <category>tomcat</category>
+        <category>oracle</category>
       </categories>
       <tags>
-        <tag>https</tag>
-        <tag>https遇到的问题</tag>
+        <tag>SQL</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[ajax参数]]></title>
+    <url>%2Fblog%2F2019%2F09%2F21%2FJS%E5%8F%8AJquery%2Fajax%E5%8F%82%E6%95%B0%2F</url>
+    <content type="text"><![CDATA[$.ajax({ url: &quot;com.fcb.erp.tools.util.runSql.biz.ext&quot;, type: &#39;POST&#39;, data: json, cache: false, //cache属性是true时：在第一次请求完成之后，如果地址和参数不变化，第二次去请求， // 会默认获取缓存中的数据，不去读取服务器端的最新数据。 //cache属性是false时：每次读取的是最新的数据。 //ajax缓存只对GET方式的请求有效，因为浏览器认为POST请求提交的内容必定有变化，所以不走缓存。 contentType:&#39;text/json&#39;, async: true/false,//异步还是同步 默认是true success: function (data) { console.info(data); }});]]></content>
+      <categories>
+        <category>JS及Jquery</category>
+      </categories>
+      <tags>
+        <tag>ajax</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[监听回车事件]]></title>
+    <url>%2Fblog%2F2019%2F09%2F21%2FJS%E5%8F%8AJquery%2F%E7%9B%91%E5%90%AC%E5%9B%9E%E8%BD%A6%E4%BA%8B%E4%BB%B6%2F</url>
+    <content type="text"><![CDATA[页面上监听回车调用方法可用于 直接回车登陆 以及 直接回车查询document.onkeydown = function(){ var event = window.event; if (event.keyCode == 13) { search(); }};$(document).keydown(function(event){ if(event.keyCode == 13){ alert(&#39;你按下了Enter&#39;); }});]]></content>
+      <categories>
+        <category>JS及Jquery</category>
+      </categories>
+      <tags>
+        <tag>js监听</tag>
       </tags>
   </entry>
   <entry>
     <title><![CDATA[简单操作]]></title>
     <url>%2Fblog%2F2019%2F09%2F21%2FJS%E5%8F%8AJquery%2F%E7%AE%80%E5%8D%95%E6%93%8D%E4%BD%9C%2F</url>
-    <content type="text"><![CDATA[js去掉换行str=str.replace(/^\n+|\n+$/g,&quot;&quot;);日期的正则表达式yyyy-MM-dd /^[1-2][0-9][0-9][0-9]-[0-1]{0,1}[0-9]-[0-3]{0,1}[0-9]$/yyyy/M/dd /^[1-2][0-9][0-9][0-9]/[0-1]{0,1}[0-9]/[0-3]{0,1}[0-9]$/ 去掉字符串中所有的空格或单引号str=str.replace(/\s/g,””);b= b.replace(/&#39;/g, “”); 获得年龄function getAge(str){ var r = str.match(/^(\d{1,4})(-|/)(\d{1,2})\2(\d{1,2})$/); if(r==null)return false; var d= new Date(r[1],r[3]-1,r[4]); if(d.getFullYear()==r[1]&amp;&amp;(d.getMonth()+1)==r[3]&amp;&amp;d.getDate()==r[4]){ var date = new Date(); var Y = date.getFullYear() - r[1]; var M = date.getMonth() + 1 - r[3]; var D = date.getDate(); if(parseInt(D) - parseInt(r[4]) &lt; 0){ M–; if(M&lt;0){ Y–; M = 11; } } if(M&lt;0){ Y–; M = 11; } return M?(Y+”岁零”+M+”月”):(Y+”岁”); } return(“日期格式错误！”); } 获得天数差字符串 数组相互转换 数组转字符串： var a, b; a = new Array(0,1,2,3,4); b = a.join(“,”); 字符串转数组： var s = “abc,abcd,aaa”; ss = s.split(“,”);// 在每个逗号(,)处进行分解 [“abc”, “abcd”, “aaa”] var s1 = “helloworld”; ss1 = s1.split(‘’); //[“h”, “e”, “l”, “l”, “o”, “w”, “o”, “r”, “l”, “d”] JSON的 新增 修改 删除对象的 新增 修改 删除删除 delete 对象.属性 数组的 新增 修改 删除]]></content>
+    <content type="text"><![CDATA[js去掉换行str=str.replace(/^\n+|\n+$/g,&quot;&quot;); 日期的正则表达式yyyy-MM-dd /^[1-2][0-9][0-9][0-9]-[0-1]{0,1}[0-9]-[0-3]{0,1}[0-9]$/yyyy/M/dd /^[1-2][0-9][0-9][0-9]/[0-1]{0,1}[0-9]/[0-3]{0,1}[0-9]$/ 去掉字符串中所有的空格或单引号str=str.replace(/\s/g,&quot;&quot;);b= b.replace(/&#39;/g, &quot;&quot;); 获得年龄function getAge(str){ var r = str.match(/^(\d{1,4})(-|/)(\d{1,2})\2(\d{1,2})$/); if(r==null)return false; var d= new Date(r[1],r[3]-1,r[4]); if(d.getFullYear()==r[1]&amp;&amp;(d.getMonth()+1)==r[3]&amp;&amp;d.getDate()==r[4]){ var date = new Date(); var Y = date.getFullYear() - r[1]; var M = date.getMonth() + 1 - r[3]; var D = date.getDate(); if(parseInt(D) - parseInt(r[4]) &lt; 0){ M–; if(M&lt;0){ Y–; M = 11; } } if(M&lt;0){ Y–; M = 11; } return M?(Y+&quot;岁零&quot;+M+&quot;月&quot;):(Y+&quot;岁&quot;); } return(&quot;日期格式错误！&quot;); } 获得天数差寻找第三方接口 判断法定节假日、调休日、周末、工作日字符串 数组相互转换 数组转字符串： var a, b; a = new Array(0,1,2,3,4); b = a.join(&quot;,&quot;); 字符串转数组： var s = &quot;abc,abcd,aaa&quot;; ss = s.split(&quot;,&quot;);// 在每个逗号处进行分解 [&quot;abc&quot;, &quot;abcd&quot;, &quot;aaa&quot;] var s1 = &quot;helloworld&quot;; ss1 = s1.split(‘’); // 每个字符分解 [&quot;h&quot;, &quot;e&quot;, &quot;l&quot;, &quot;l&quot;, &quot;o&quot;, &quot;w&quot;, &quot;o&quot;, &quot;r&quot;, &quot;l&quot;, &quot;d&quot;] JSON的 新增 修改 删除对象的 新增 修改 删除删除 delete 对象.属性 数组的 新增 修改 删除JS中浮点型小数计算误差]]></content>
       <categories>
         <category>JS及Jquery</category>
       </categories>
       <tags>
         <tag>简单操作</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title><![CDATA[DOM对象]]></title>
-    <url>%2Fblog%2F2019%2F09%2F21%2FJS%E5%8F%8AJquery%2FDOM%E5%AF%B9%E8%B1%A1%2F</url>
-    <content type="text"><![CDATA[获取DOM对象document.getElementById(“ID的值”); document.getElementsByClassName(“类名”) document.getElementsByTagName(“标签名”); document.getElementsByName(“name属性的值”) document.querySelector(“选择器”);//只能获取第一个 document.querySelectorAll(“选择器”)//获取所有的，返回的数组 创建DOM对象var div = document.createElement(“标签名”);//返回的事 var text = document.createTextNode(“aa”)//创建了一个”aa”字符串 操作DOM对象的属性第一种方式弊端：只能操作W3C提供的标签的属性 1.先获取对象 2.对象名.属性名 第二种方式获取属性值：dom对象.getAttribute(“属性名”) 设置属性值:dom对象.setAttribute(“属性名”,”属性值”); 删除属性值:dom对象.removeAttribute(“属性名”); 总结如果只操作原有属性，用哪种方式都行，但是如果要操作自定义属性，那么必须使用第二种方式 删除,添加DOM对象提示：按钮使用超链接完成 超链接当作按钮使用时候的注意事项href=””默认会刷新当前页面 href=”#”就会滚动到页面的最上面 所以我们的目标是点击超链接的时候什么都不做 1&lt;a href=&quot;javascript:void(0)&quot; &gt;添加&lt;/a&gt; 添加: 父元素.appendChild(子元素) 删除 父元素.removeChild(子元素) 通过JS操作样式1.对象名.style.样式名=”值” 2.对象名.className = “类名”; 总结0.js组成ESMAScript(基本语法)+BOM+DOM DEBUG1.F12 2.点击console旁边的Source 3.找到JS源代码 4.添加断点 5.刷新页面(或触发事件)，目的是让JS执行 6.F10一行一行执行,F8进入下一个断点 7.选中要观察的变量，右键 xxxx watch 1.通过JS操作标签##1.1获取标签对象 1var dom对象 = document.getElementById("id值"); 1.2操作标签对象的普通属性1234//获取属性值console.log(dom对象.属性名);//设置属性值dom对象.属性名 = &quot;值&quot;; ##1.3操作标签对象的特殊属性innerHTML 1dom对象.innerHTML = &quot;html代码&quot;; 2.通过JS给标签绑定事件2.1绑定事件的第一种方式1&lt;button onclick="console.log('我被点击了');" type="button"&gt;孔老&lt;/button&gt; 通过标签的onclick属性绑定事件,属性值是一段JS代码 2.2绑定事件的第一种方式变形12345678910&lt;script&gt; //把代码抽取到方法中 function aa()&#123; for(var i=0; i&lt;100; i++)&#123; console.log(i); &#125; &#125; &lt;/script&gt;&lt;button onclick="aa()" type="button"&gt;孔老&lt;/button&gt; 因为这段代码可能非常长，比如: 孔老 如果以属性的形式编写代码，特别不方便阅读，所以把代码抽取到方法中，然后调用方法就好了 孔老 ##2.3绑定事件的第二种方式 通过DOM对象来绑定 1234567&lt;button id="btn" &gt;孔老&lt;/button&gt;&lt;script&gt; var btn = document.getElementById("btn"); btn.onclick = function()&#123;//必须点击按钮才能触发事件的执行 console.log(1); &#125;&lt;/script&gt; 2.5灯泡案例1.页面应该存放img标签，并且设定默认的图片 2.给图片标签绑定单击事件 3.在单击事件中去修改img标签的src属性来实现切换图片 ```html &lt;script&gt; var img = document.getElementById(&quot;light&quot;); var flag = false;//false关灯状态 img.onclick = function(){ if(!flag){//如果是关灯状态(flag==false)，就改为开灯,flag = true img.src = &quot;img/on.gif&quot;; flag = true; }else{//如果是开灯状态(flag==true)，就改为关灯flag = false; img.src = &quot;img/off.gif&quot;; flag = false; } } &lt;/script&gt;L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"log":false,"model":{"jsonPath":"/blog/live2dw/assets/z16.model.json"},"display":{"position":"left","width":200,"height":400,"hOffset":50,"vOffset":80},"mobile":{"show":true}});]]></content>
-      <categories>
-        <category>JS及Jquery</category>
-      </categories>
-      <tags>
-        <tag>DOM对象</tag>
       </tags>
   </entry>
   <entry>
@@ -57,20 +78,9 @@
       </tags>
   </entry>
   <entry>
-    <title><![CDATA[ajax参数]]></title>
-    <url>%2Fblog%2F2019%2F09%2F21%2FJS%E5%8F%8AJquery%2Fajax%E5%8F%82%E6%95%B0%2F</url>
-    <content type="text"><![CDATA[$.ajax({ url: “com.fcb.erp.tools.util.runSql.biz.ext”, type: ‘POST’, data: json, cache: false, //cache属性是true时：在第一次请求完成之后，如果地址和参数不变化，第二次去请求， // 会默认获取缓存中的数据，不去读取服务器端的最新数据。 //cache属性是false时：每次读取的是最新的数据。 //ajax缓存只对GET方式的请求有效，因为浏览器认为POST请求提交的内容必定有变化，所以不走缓存。 contentType:’text/json’, async: true/false,//异步还是同步 默认是true success: function (data) { console.info(data); }});]]></content>
-      <categories>
-        <category>JS及Jquery</category>
-      </categories>
-      <tags>
-        <tag>ajax</tag>
-      </tags>
-  </entry>
-  <entry>
     <title><![CDATA[自定义编码]]></title>
     <url>%2Fblog%2F2019%2F09%2F21%2FJS%E5%8F%8AJquery%2F%E8%87%AA%E5%AE%9A%E4%B9%89%E7%BC%96%E7%A0%81%2F</url>
-    <content type="text"><![CDATA[//根据表名和编码字段获取最大编码function createOAMaxCode(module,tablename,codefiled){ var yearAndMonth=nui.formatDate(new Date(),”yyyyMM”); var maxCode = “”; var sqlStr =” select max(substr(“+codefiled+”,-3)) as maxCode from “+tablename+” where “+codefiled+” like ‘“+module+”-“+new Date().getFullYear()+”%’”; console.log(sqlStr); var ret = ERP.runSql(sqlStr, “select”, false); console.log(ret); var retNum = parseInt(ret.dataObject[0].MAXCODE); console.log(retNum); var re = /^[0-9]+.?[0-9]*/;//判断字符串是否为数字//判断正整数/[1−9]+[0−9]∗]∗/ if(ret.result == ‘success’ &amp;&amp; isEmpty(ret.dataObject[0].MAXCODE)){//如果是新的一年则编码从1计数 maxCode=”001”; }else if( !re.test(ret.dataObject[0].MAXCODE)){//查询出错 maxCode=”编码生成错误，请手动输入..”; } else{ maxCode = PrefixInteger(retNum+1,3);//最大编码数值 } var modeCode = module+”-“+yearAndMonth+”-“+maxCode; return modeCode;}//补0function PrefixInteger(num, length) { return (Array(length).join(‘0’) + num).slice(-length);}//判断字符是否为空function isEmpty(obj){ if(typeof obj == “undefined” || obj == null || obj == “”){ return true; }else{ return false; }}]]></content>
+    <content type="text"><![CDATA[123456789101112131415161718192021222324252627282930313233//根据表名和编码字段获取最大编码function createOAMaxCode(module,tablename,codefiled)&#123; var yearAndMonth=nui.formatDate(new Date(),"yyyyMM"); var maxCode = ""; var sqlStr =" select max(substr("+codefiled+",-3)) as maxCode from "+tablename+" where "+codefiled+" like '"+module+"-"+new Date().getFullYear()+"%'"; console.log(sqlStr); var ret = ERP.runSql(sqlStr, "select", false); console.log(ret); var retNum = parseInt(ret.dataObject[0].MAXCODE); console.log(retNum); var re = /^[0-9]+.?[0-9]*/;//判断字符串是否为数字//判断正整数/[1−9]+[0−9]∗]∗/ if(ret.result == 'success' &amp;&amp; isEmpty(ret.dataObject[0].MAXCODE))&#123;//如果是新的一年则编码从1计数 maxCode="001"; &#125;else if( !re.test(ret.dataObject[0].MAXCODE))&#123;//查询出错 maxCode="编码生成错误，请手动输入.."; &#125; else&#123; maxCode = PrefixInteger(retNum+1,3);//最大编码数值 &#125; var modeCode = module+"-"+yearAndMonth+"-"+maxCode; return modeCode;&#125;//补0function PrefixInteger(num, length) &#123; return (Array(length).join('0') + num).slice(-length);&#125;//判断字符是否为空function isEmpty(obj)&#123; if(typeof obj == "undefined" || obj == null || obj == "")&#123; return true; &#125;else&#123; return false; &#125;&#125;]]></content>
       <categories>
         <category>JS及Jquery</category>
       </categories>
@@ -79,36 +89,14 @@
       </tags>
   </entry>
   <entry>
-    <title><![CDATA[监听回车事件]]></title>
-    <url>%2Fblog%2F2019%2F09%2F21%2FJS%E5%8F%8AJquery%2F%E7%9B%91%E5%90%AC%E5%9B%9E%E8%BD%A6%E4%BA%8B%E4%BB%B6%2F</url>
-    <content type="text"><![CDATA[页面上监听回车调用方法 可用于 直接回车登陆 以及 直接回车查询 document.onkeydown = function(){ var event = window.event; if (event.keyCode == 13) { search(); } }; $(document).keydown(function(event){ if(event.keyCode == 13){ alert(‘你按下了Enter’); } });]]></content>
+    <title><![CDATA[xml文件转义]]></title>
+    <url>%2Fblog%2F2019%2F09%2F21%2FMyBatis%2Fxml%E6%96%87%E4%BB%B6%E8%BD%AC%E4%B9%89%2F</url>
+    <content type="text"><![CDATA[xml写 大于＞ 小于＜ 1.特殊标签 如： select * from table a where a.field 20 &gt;= #{field} select * from table a where &lt;if 条件&gt; a.field #{field} 2.转义字符 ＞：&gt; ＜：&lt; 在XML中，需要转义的字符有： (1)&amp; &amp; (2)＞ &lt; (3)＞ &gt; (4)” &quot; (5)＇ &apos; 但是严格来说，在XML中只有”&lt;”和”&amp;”是非法的，其它三个都是可以合法存在的，但是，把它们都进行转义是一个好的习惯。 不管怎么样，转义前的字符也好，转义后的字符也好，都会被xml解析器解析，为了方便起见，使用来包含不被xml解析器解析的内容。但要注意的是： (1) 此部分不能再包含”]]&gt;”； (2) 不允许嵌套使用； (3)”]]&gt;”这部分不能包含空格或者换行。 最后，说说和xml转移字符的关系，它们两个看起来是不是感觉功能重复了？ 是的，它们的功能就是一样的，只是应用场景和需求有些不同： (1)不能适用所有情况，转义字符可以； (2) 对于短字符串写起来啰嗦，对于长字符串转义字符写起来可读性差； (3) 表示xml解析器忽略解析，所以更快。 HTML特殊转义字符对照表 HTML字符实体转换]]></content>
       <categories>
-        <category>JS及Jquery</category>
+        <category>MyBatis</category>
       </categories>
       <tags>
-        <tag>js监听</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title><![CDATA[mysql8.0的url]]></title>
-    <url>%2Fblog%2F2019%2F09%2F21%2Fmysql%2Fmysql8.0%E7%9A%84url%2F</url>
-    <content type="text"><![CDATA[jdbc:mysql://IP:3306/库?useUnicode=true&amp;characterEncoding=utf8&amp;zeroDateTimeBehavior=convertToNull&amp;useSSL=true&amp;serverTimezone=GMT%2B8]]></content>
-      <categories>
-        <category>mysql</category>
-      </categories>
-      <tags>
-        <tag>mysql8.0的url</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title><![CDATA[oracle的常用SQL]]></title>
-    <url>%2Fblog%2F2019%2F09%2F21%2Foracle%2Foracle%E7%9A%84%E5%B8%B8%E7%94%A8SQL%2F</url>
-    <content type="text"><![CDATA[oracle分页SELECT * FROM ( SELECT rownum rn ,t1.* FROM OA_QY_KQGL_XJTJB_SUB t1 , ORG_ORGANIZATION t2 WHERE rownum &lt;= (1+1) * 15 and t1.bmname=t2.orgname and t1.mid=461 order by t2.sortno)WHERE rn &gt; 1 * 15 oracle查询 数据断层主键SELECT ROWNUM FROM ALL_OBJECTS WHERE ROWNUM &lt; = (SELECT MAX(t.wfhisid) FROM ERP_WORKFLOW_HIS t)MINUSSELECT t.wfhisid FROM ERP_WORKFLOW_HIS t oracle查询某个列名在哪些表中select column_name,table_name from user_tab_columns where lower(column_name)= lower(‘列名’) Oracle创建序列缓存CREATE SEQUENCE –序列名称INCREMENT BY 步长START WITH 起始值MAXVALUE 最大值 /NOMAXvalue –无最大值MINVALUE 最小值CYCLE/NOCYCLE –是否循环 最大值用完 是否从start with开始 否则从MINVALUE开始（NOCYCLE和NOMAXvalue一起用）CACHE 缓存大小 –会造成跳号Order/NOORDER; –排不排序 一般不排序 sequence number是timestamp才排序 Oracle使用序列缓存CurrVal：返回 sequence的当前值NextVal：增加sequence的值，然后返回 增加后sequence值SELECT 序列名称.CurrVal FROM 表insert into 表名(id,name)values(序列名称.Nextval,’sequence 插入测试’); 注：必须先NextVal才能CurrVal ； 在同一个语句里面使用多个NEXTV，其值不一样（++i） 创建触发器做自增主键create or replace trigger 触发器名称before insert on 表 –before:执行DML等操作之前触发for each row –行级触发器begin select 序列名.nextval into :new.id from dual;end; 常用SQLto_char(LOANDATE,’yyyy-MM-dd’) LOANDATE,( SELECT e.dictname FROM eos_dict_entry e WHERE e.dicttypeid = ‘IPM_ZHBG_SQDLX’ AND e.dictid = a.APPLICATIONTYPE ) APPLICATIONTYPE SELECT LOWER(‘IPM_CONTRACT_SALE_KXXX’) FROM dual SELECT ‘$F{‘||UPPER(‘ms’)||’}’ FROM dual 查询重复数据select * from 重复记录字段 in ( select 重复记录字段 form 数据表 group by 重复记录字段 having count(重复记录字段)&gt;1)Oracle查询操作日志SELECT t.SQL_TEXT, t.FIRST_LOAD_TIMEFROM v$sqlarea tWHERE t.FIRST_LOAD_TIME LIKE ‘2019-07-18%’ AND lower( t.SQL_TEXT ) LIKE ‘%prp_car_%’ AND lower( t.SQL_TEXT ) NOT LIKE ‘%select%’ORDER BY t.FIRST_LOAD_TIME DESC oracle闪回alter table 表名 enable row movement–恢复表数据flashback table 表名 to timestamp to_timestamp(删除时间点’,’yyyy-mm-dd hh24:mi:ss’)–关闭行移动功能alter table 表名 disable row movement ##oracle查询最近删除的数据SELECT * FROM 表 AS OF TIMESTAMP sysdate-1/24 where 条件]]></content>
-      <categories>
-        <category>oracle</category>
-      </categories>
-      <tags>
-        <tag>SQL</tag>
+        <tag>xml文件转义</tag>
       </tags>
   </entry>
   <entry>
@@ -124,47 +112,37 @@
       </tags>
   </entry>
   <entry>
-    <title><![CDATA[完整的url地址]]></title>
-    <url>%2Fblog%2F2019%2F09%2F21%2Ftomcat%2F%E5%AE%8C%E6%95%B4%E7%9A%84url%E5%9C%B0%E5%9D%80%2F</url>
-    <content type="text"><![CDATA[在编写接口代码时，尽量使用request中获取的完整地址确保拓展性 如https协议 域名 修改端口并注释上是请求哪的服务器如果是测试数据，记得注明，测试完注释 项目名（webapp文件夹名）String path = request.getContextPath(); URL地址String basePath = request.getScheme()+”://“+request.getServerName()+”:”+request.getServerPort()+path+”/“;]]></content>
-      <categories>
-        <category>tomcat</category>
-      </categories>
-      <tags>
-        <tag>url</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title><![CDATA[导入导出]]></title>
-    <url>%2Fblog%2F2019%2F09%2F21%2Foracle%2F%E5%AF%BC%E5%85%A5%E5%AF%BC%E5%87%BA%2F</url>
-    <content type="text"><![CDATA[导出导出整个数据库方法一：导出表结构和数据的sql（非常慢 并且不能导出大数据字段BLOB和CLOB 但稳妥） 方法二：exp qyepc/qyepc@192.168.2.83:1521/orcl file=E:\Desktop\qyepc20190626.DMP owner=qyepc（11G默认不导出空表） exp IPM/ipm@192.168.0.3:1521/orcl file=E:\123.DMP owner=IPM exp htprp/htprp@10.1.242.210:1521/ORCL7 file=E:\htprp.DMP owner=htprpOracle 11G在用EXP 导出时，空表不能导出解决：1、先查询一下当前用户下的所有空表 select table_name from user_tables where NUM_ROWS=0; 2、用以下这句查找空表 select &apos;alter table &apos;||table_name||&apos; allocate extent;&apos; from user_tables where num_rows=0 把查询结果导出，执行导出的语句 &apos;ALTERTABLE&apos;||TABLE_NAME||&apos;ALLOCATEEXTENT;&apos; ----------------------------------------------------------- alter table AQ$_AQ$_MEM_MC_H allocate extent; alter table AQ$_AQ$_MEM_MC_G allocate extent; alter table AQ$_AQ$_MEM_MC_I allocate extent; 3、然后再执行 exp 导出对于还没建表时（对以前导入的空表不产生作用，仍不能导出，只能对后面新增的表产生作用）：设置deferred_segment_creation参数 show parameter deferred_segment_creation alter system set deferred_segment_creation=false; show parameter deferred_segment_creation导入迁移从旧表导出到新表（表合并 + 表拆分 + 字段名不同） 1.表设计 把列名改相同 2.用navicat导出成excel（记得勾选包括列名） 3.将excel类型的时间 改为文本 =TEXT(A1,’yyyy/mm/dd’) 复制后仅粘贴数值 4.在excel中 菜单栏排序后 自己检查、去重 批量生成sql 复制后仅粘贴数值： =CONCATENATE(“insert into 表名 (“,$A$1,”,”,$B$1,”,”,$C$1,”) values (‘“,A2,”‘,’”,B2,”‘,TO_DATE(‘“,C2,”‘,’yyyy/mm/dd’));”) 5.在navicat中执行sql]]></content>
-      <categories>
-        <category>oracle</category>
-      </categories>
-      <tags>
-        <tag>oracle导入导出</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title><![CDATA[指定端口、修改jdk]]></title>
-    <url>%2Fblog%2F2019%2F09%2F21%2Ftomcat%2F%E6%8C%87%E5%AE%9A%E7%AB%AF%E5%8F%A3%E3%80%81%E4%BF%AE%E6%94%B9jdk%2F</url>
-    <content type="text"></content>
-      <categories>
-        <category>tomcat</category>
-      </categories>
-      <tags>
-        <tag>tomcat指定端口、修改jdk</tag>
-      </tags>
-  </entry>
-  <entry>
     <title><![CDATA[SQL优化]]></title>
     <url>%2Fblog%2F2019%2F09%2F21%2Fmysql%2FSQL%E4%BC%98%E5%8C%96%2F</url>
-    <content type="text"></content>
+    <content type="text"><![CDATA[MySQL百万级数据分页查询及优化https://www.cnblogs.com/dreamroute/p/11118581.html]]></content>
       <categories>
         <category>mysql</category>
       </categories>
       <tags>
         <tag>SQL优化</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[SQL索引失效]]></title>
+    <url>%2Fblog%2F2019%2F09%2F21%2Fmysql%2FSQL%E7%B4%A2%E5%BC%95%E5%A4%B1%E6%95%88%2F</url>
+    <content type="text"><![CDATA[1.like查询以%开头（like ‘%abc’ 或者like ‘%abc%’，’abc%’不会失效）2.条件查询有 or3. 4.查询is null条件使用 &lt;&gt; 、not in 、not exist、!=]]></content>
+      <categories>
+        <category>mysql</category>
+      </categories>
+      <tags>
+        <tag>SQL</tag>
+        <tag>索引</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[mysql8.0的url]]></title>
+    <url>%2Fblog%2F2019%2F09%2F21%2Fmysql%2Fmysql8.0%E7%9A%84url%2F</url>
+    <content type="text"><![CDATA[jdbc:mysql://IP:3306/库?useUnicode=true&amp;characterEncoding=utf8&amp;zeroDateTimeBehavior=convertToNull&amp;useSSL=true&amp;serverTimezone=GMT%2B8]]></content>
+      <categories>
+        <category>mysql</category>
+      </categories>
+      <tags>
+        <tag>mysql8.0的url</tag>
       </tags>
   </entry>
   <entry>
@@ -179,31 +157,20 @@
       </tags>
   </entry>
   <entry>
-    <title><![CDATA[MD5、SHA1、SHA256]]></title>
-    <url>%2Fblog%2F2019%2F09%2F21%2F%E5%B8%B8%E7%94%A8%E5%8A%A0%E5%AF%86%2FMD5%E3%80%81SHA1%E3%80%81SHA256%2F</url>
-    <content type="text"><![CDATA[以下是对数据加密的几种方法 MD5,sha1,sha256; 123456789101112131415161718192021222324252627282930313233343536373839404142434445464748495051525354555657585960616263646566676869707172737475767778798081828384858687888990919293949596979899100101102103104105106107108109110111112113114115116117118119120121122123124125126127128129130131132133134135136137138139import java.io.UnsupportedEncodingException; import java.security.MessageDigest; import java.security.NoSuchAlgorithmException; import java.util.Scanner; import org.apache.commons.codec.binary.Hex; /** * 常見的几种加密方式 */ public class Encrypt &#123; public static void main(String[] args) &#123; Scanner sc = new Scanner(System.in); String next = sc.next(); //123 String md5str = string2MD5(next); //202CB962AC59075B964B07152D234B70 String sha1str = string2Sha1(next); //40bd001563085fc35165329ea1ff5c5ecbdbbeef String sha256str = String2SHA256(next); //a665a45920422f9d417e4867efdc4fb8a04a1f3fff1fa07e998e86f7f7a27ae3 String sha256Javastr = String2SHA256StrJava(next); //a665a45920422f9d417e4867efdc4fb8a04a1f3fff1fa07e998e86f7f7a27ae3 System.out.println("next"); System.out.println("md5str:"+md5str); System.out.println("sha1str:"+sha1str); System.out.println("sha256str:"+sha256str); System.out.println("sha256Javastr："+sha256Javastr); &#125; /** * MD5加密 生成32位md5码 */ public static String string2MD5(String inStr)&#123; MessageDigest md5 = null; try&#123; md5 = MessageDigest.getInstance("MD5"); &#125;catch (Exception e)&#123; System.out.println(e.toString()); e.printStackTrace(); return ""; &#125; char[] charArray = inStr.toCharArray(); byte[] byteArray = new byte[charArray.length]; for (int i = 0; i &lt; charArray.length; i++) byteArray[i] = (byte) charArray[i]; byte[] md5Bytes = md5.digest(byteArray); StringBuffer hexValue = new StringBuffer(); for (int i = 0; i &lt; md5Bytes.length; i++)&#123; int val = ((int) md5Bytes[i]) &amp; 0xff; if (val &lt; 16) hexValue.append("0"); hexValue.append(Integer.toHexString(val)); &#125; return hexValue.toString().toUpperCase(); &#125; /** * SHA1加密 * @param str * @return */ public static String string2Sha1(String str)&#123; if(str==null||str.length()==0)&#123; return null; &#125; char hexDigits[] = &#123;'0','1','2','3','4','5','6','7','8','9', 'a','b','c','d','e','f'&#125;; try &#123; MessageDigest mdTemp = MessageDigest.getInstance("SHA1"); mdTemp.update(str.getBytes("UTF-8")); byte[] md = mdTemp.digest(); int j = md.length; char buf[] = new char[j*2]; int k = 0; for (int i = 0; i &lt; j; i++) &#123; byte byte0 = md[i]; buf[k++] = hexDigits[byte0 &gt;&gt;&gt; 4 &amp; 0xf]; buf[k++] = hexDigits[byte0 &amp; 0xf]; &#125; return new String(buf); &#125; catch (Exception e) &#123; return null; &#125; &#125; /** * 利用Apache的工具类实现SHA-256加密 * 所需jar包下載 http://pan.baidu.com/s/1nuKxYGh * @param str 加密后的报文 * @return */ public static String String2SHA256(String str)&#123; MessageDigest messageDigest; String encdeStr = ""; try &#123; messageDigest = MessageDigest.getInstance("SHA-256"); byte[] hash = messageDigest.digest(str.getBytes("UTF-8")); encdeStr = Hex.encodeHexString(hash); &#125; catch (NoSuchAlgorithmException e) &#123; e.printStackTrace(); &#125; catch (UnsupportedEncodingException e) &#123; e.printStackTrace(); &#125; return encdeStr; &#125; //--------- /** * 利用java原生的摘要实现SHA256加密 * @param str 加密后的报文 * @return */ public static String String2SHA256StrJava(String str)&#123; MessageDigest messageDigest; String encodeStr = ""; try &#123; messageDigest = MessageDigest.getInstance("SHA-256"); messageDigest.update(str.getBytes("UTF-8")); encodeStr = byte2Hex(messageDigest.digest()); &#125; catch (NoSuchAlgorithmException e) &#123; e.printStackTrace(); &#125; catch (UnsupportedEncodingException e) &#123; e.printStackTrace(); &#125; return encodeStr; &#125; /** * 将byte转为16进制 * @param bytes * @return */ private static String byte2Hex(byte[] bytes)&#123; StringBuffer stringBuffer = new StringBuffer(); String temp = null; for (int i=0;i&lt;bytes.length;i++)&#123; temp = Integer.toHexString(bytes[i] &amp; 0xFF); if (temp.length()==1)&#123; //1得到一位的进行补0操作 stringBuffer.append("0"); &#125; stringBuffer.append(temp); &#125; return stringBuffer.toString(); &#125; &#125;]]></content>
+    <title><![CDATA[DOM对象]]></title>
+    <url>%2Fblog%2F2019%2F09%2F21%2FJS%E5%8F%8AJquery%2FDOM%E5%AF%B9%E8%B1%A1%2F</url>
+    <content type="text"><![CDATA[获取DOM对象sdocument.getElementById(&quot;ID的值&quot;); document.getElementsByClassName(&quot;类名&quot;) document.getElementsByTagName(&quot;标签名&quot;); document.getElementsByName(&quot;name属性的值&quot;) document.querySelector(&quot;选择器&quot;);//只能获取第一个 document.querySelectorAll(&quot;选择器&quot;)//获取所有的，返回的数组 创建DOM对象var div = document.createElement(&quot;标签名&quot;);//返回的&lt;div&gt;&lt;/div&gt; var text = document.createTextNode(&quot;aa&quot;)//创建了一个&quot;aa&quot;字符串 操作DOM对象的属性第一种方式弊端：只能操作W3C提供的标签的属性 1.先获取对象 2.对象名.属性名 第二种方式获取属性值：dom对象.getAttribute(&quot;属性名&quot;) 设置属性值：dom对象.setAttribute(&quot;属性名&quot;,&quot;属性值&quot;); 删除属性值：dom对象.removeAttribute(&quot;属性名&quot;); 总结如果只操作原有属性，用哪种方式都行，但是如果要操作自定义属性，那么必须使用第二种方式 删除,添加DOM对象提示：按钮使用超链接完成 超链接当作按钮使用时候的注意事项href=&quot;&quot;默认会刷新当前页面 href=&quot;#&quot;就会滚动到页面的最上面 所以我们的目标是点击超链接的时候什么都不做 1&lt;a href=&quot;javascript:void(0)&quot; &gt;添加&lt;/a&gt; 添加: 父元素.appendChild(子元素) 删除 父元素.removeChild(子元素) 通过JS操作样式1.对象名.style.样式名=&quot;值&quot; 2.对象名.className = &quot;类名&quot;; 总结0.js组成ESMAScript(基本语法)+BOM+DOM DEBUG1.F12 2.点击console旁边的Source 3.找到JS源代码 4.添加断点 5.刷新页面(或触发事件)，目的是让JS执行 6.F10一行一行执行,F8进入下一个断点 7.选中要观察的变量，右键 xxxx watch 1.通过JS操作标签1.1获取标签对象1var dom对象 = document.getElementById("id值"); 1.2操作标签对象的普通属性1234//获取属性值console.log(dom对象.属性名);//设置属性值dom对象.属性名 = &quot;值&quot;; 1.3操作标签对象的特殊属性innerHTML1dom对象.innerHTML = &quot;html代码&quot;; 2.通过JS给标签绑定事件2.1绑定事件的第一种方式1&lt;button onclick="console.log('我被点击了');" type="button"&gt;孔老&lt;/button&gt; 通过标签的onclick属性绑定事件,属性值是一段JS代码 2.2绑定事件的第一种方式变形12345678910&lt;script&gt; //把代码抽取到方法中 function aa()&#123; for(var i=0; i&lt;100; i++)&#123; console.log(i); &#125; &#125; &lt;/script&gt;&lt;button onclick="aa()" type="button"&gt;孔老&lt;/button&gt; 因为这段代码可能非常长，比如: &lt;button onclick=&quot;for(var i=0;i&lt;100; i++){console.log(i);}&quot; type=&quot;button&quot;&gt;孔老 如果以属性的形式编写代码，特别不方便阅读，所以把代码抽取到方法中，然后调用方法就好了 孔老 2.3绑定事件的第二种方式通过DOM对象来绑定 1234567&lt;button id="btn" &gt;孔老&lt;/button&gt;&lt;script&gt; var btn = document.getElementById("btn"); btn.onclick = function()&#123;//必须点击按钮才能触发事件的执行 console.log(1); &#125;&lt;/script&gt; 2.5灯泡案例1.页面应该存放img标签，并且设定默认的图片 2.给图片标签绑定单击事件 3.在单击事件中去修改img标签的src属性来实现切换图片 ```html &lt;script&gt; var img = document.getElementById(&quot;light&quot;); var flag = false;//false关灯状态 img.onclick = function(){ if(!flag){//如果是关灯状态(flag==false)，就改为开灯,flag = true img.src = &quot;img/on.gif&quot;; flag = true; }else{//如果是开灯状态(flag==true)，就改为关灯flag = false; img.src = &quot;img/off.gif&quot;; flag = false; } } &lt;/script&gt;L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"log":false,"model":{"jsonPath":"/blog/live2dw/assets/z16.model.json"},"display":{"position":"left","width":200,"height":400,"hOffset":50,"vOffset":80},"mobile":{"show":true}});]]></content>
       <categories>
-        <category>常用加密</category>
+        <category>JS及Jquery</category>
       </categories>
       <tags>
-        <tag>加密</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title><![CDATA[xml文件转义]]></title>
-    <url>%2Fblog%2F2019%2F09%2F21%2FMyBatis%2Fxml%E6%96%87%E4%BB%B6%E8%BD%AC%E4%B9%89%2F</url>
-    <content type="text"><![CDATA[xml写 大于＞ 小于＜ 1.特殊标签 如： select * from table a where a.field 20 &gt;= #{field} select * from table a where &lt;if 条件&gt; a.field #{field} 2.转义字符 ＞：&gt; ＜：&lt; 在XML中，需要转义的字符有： (1)&amp; &amp; (2)&lt; &lt; (3)&gt; &gt; (4)＂ &quot; (5)＇ &apos; 但是严格来说，在XML中只有”&lt;”和”&amp;”是非法的，其它三个都是可以合法存在的，但是，把它们都进行转义是一个好的习惯。 不管怎么样，转义前的字符也好，转义后的字符也好，都会被xml解析器解析，为了方便起见，使用来包含不被xml解析器解析的内容。但要注意的是： (1) 此部分不能再包含”]]&gt;”； (2) 不允许嵌套使用； (3)”]]&gt;”这部分不能包含空格或者换行。 最后，说说和xml转移字符的关系，它们两个看起来是不是感觉功能重复了？ 是的，它们的功能就是一样的，只是应用场景和需求有些不同： (1)不能适用所有情况，转义字符可以； (2) 对于短字符串写起来啰嗦，对于长字符串转义字符写起来可读性差； (3) 表示xml解析器忽略解析，所以更快。]]></content>
-      <categories>
-        <category>MyBatis</category>
-      </categories>
-      <tags>
-        <tag>xml文件转义</tag>
+        <tag>DOM对象</tag>
       </tags>
   </entry>
   <entry>
     <title><![CDATA[入门操作]]></title>
     <url>%2Fblog%2F2019%2F09%2F21%2Foracle%2F%E5%85%A5%E9%97%A8%E6%93%8D%E4%BD%9C%2F</url>
-    <content type="text"><![CDATA[1.cmd下 sqlplus 进入oracleconnect as sysdba 登陆（需要设置登陆验证 安装目录\product\NETWORK\ADMINNONE\sqlnet.ora 里面NONE状态无效 但可以登陆远程服务器）或 sqlplus / as sysdba alter user scott account unlockconn scott/tiger 2.创建表空间create tablespace XNYMPMSloggingdatafile ‘D:\oracle\oradata\orcl\XNYMPMS.dbf’size 50mautoextend onnext 50m maxsize 20480mextent management local; （3.删除用户以及其数据）drop user qyepc cascade; 4.创建用户create user XNYMPMS identified by XNYMPMS default tablespace XNYMPMS;create user qyepc identified by qyepc; 5.赋予权限grant connect,resource,dba to XNYMPMS; 6.cmd下导入oracle的dmp文件imp qyepc/qyepc@localhost/orcl file=”qyepc20190730.DMP” full=y; 修改dbf文件路径（sys as sysdba）关闭数据库shutdown immediate;以mount方式启动数据库startup mount;修改dbf文件路径alter database rename file ‘D:\oracletableplace\XNYMPMS.DBF’ to ‘D:\oracle\oradata\orcl\XNYMPMS.dbf’;打开数据库alter database open; oracle默认排序Oracle查询以堆读取数据 结果无序 rowid 可能会有排序的假象 dual伪表 只有一行一列DUMMY 数据为VERCHAR2(1) ‘X’ 为了让select语句完整 符合语法规则select 1+2 from dual 修改密码忘记密码windows1.忘记system 和sys密码 但用操作系统验证sqlplus / as sysdba能够登陆 登陆后直接修改密码 解锁账户2.忘记system 和sys密码（只忘记一个 用另一个改密码）且操作系统为家庭版（无本地策略组）、设为NTS 操作系统验证仍然无权限 管理员cmd下 orapwd file=安装路径\database\PWDorcl.ora password=orcl force=y nosysdba=n 修改密码alter user system identified by orcl 解锁账户alter user system account unlock linux如果忘记密码 可以登陆oracle用户（windows本地策略组也有） 进行操作系统验证也可以重置密码orapwd file=安装路径\dbs\ORAPWorcl password=orcl force=y nosysdba=n]]></content>
+    <content type="text"><![CDATA[1.cmd下 sqlplus 进入oracleconnect as sysdba 登陆（需要设置登陆验证 安装目录\product\NETWORK\ADMINNONE\sqlnet.ora 里面NONE状态无效 但可以登陆远程服务器） 或 sqlplus / as sysdba alter user scott account unlock conn scott/tiger2.创建表空间create tablespace XNYMPMS logging datafile &apos;D:\oracle\data\XNYMPMS.dbf&apos; size 50m autoextend on next 50m maxsize 20480m extent management local;（3.删除用户以及其数据）drop user qyepc cascade;4.创建用户create user XNYMPMS identified by XNYMPMS default tablespace XNYMPMS; create user qyepc identified by qyepc;5.赋予权限grant connect,resource,dba to XNYMPMS; 6.cmd下导入oracle的dmp文件imp qyepc/qyepc@localhost/orcl file=&quot;qyepc20190730.DMP&quot; full=y;修改dbf文件路径sys as sysdba关闭数据库 shutdown immediate;以mount方式启动数据库 startup mount;修改dbf文件路径 alter database rename file &apos;D:\oracletableplace\XNYMPMS.DBF&apos; to &apos;D:\oracle\oradata\orcl\XNYMPMS.dbf&apos;;打开数据库 alter database open;oracle默认排序Oracle查询以堆读取数据 结果无序 rowid 可能会有排序的假象 dual伪表 只有一行一列DUMMY 数据为VERCHAR2(1) ‘X’ 为了让select语句完整 符合语法规则 select 1+2 from dual修改密码忘记密码windows1.忘记system 和sys密码 但用操作系统验证sqlplus / as sysdba能够登陆 登陆后直接修改密码 解锁账户2.忘记system 和sys密码（只忘记一个 用另一个改密码）且操作系统为家庭版（无本地策略组）、设为NTS 操作系统验证仍然无权限管理员cmd下 orapwd file=安装路径\database\PWDorcl.ora password=orcl force=y nosysdba=n修改密码 alter user system identified by orcl解锁账户 alter user system account unlocklinux如果忘记密码 可以登陆oracle用户（windows本地策略组也有） 进行操作系统验证也可以重置密码 orapwd file=安装路径\dbs\ORAPWorcl password=orcl force=y nosysdba=n]]></content>
       <categories>
         <category>oracle</category>
       </categories>
@@ -212,15 +179,59 @@
       </tags>
   </entry>
   <entry>
-    <title><![CDATA[SQL索引失效]]></title>
-    <url>%2Fblog%2F2019%2F09%2F21%2Fmysql%2FSQL%E7%B4%A2%E5%BC%95%E5%A4%B1%E6%95%88%2F</url>
-    <content type="text"><![CDATA[1.like查询以%开头（like ‘%abc’ 或者like ‘%abc%’，’abc%’不会失效）2.条件查询有 or3. 4.查询is null条件使用 &lt;&gt; 、not in 、not exist、!=]]></content>
+    <title><![CDATA[导入导出]]></title>
+    <url>%2Fblog%2F2019%2F09%2F21%2Foracle%2F%E5%AF%BC%E5%85%A5%E5%AF%BC%E5%87%BA%2F</url>
+    <content type="text"><![CDATA[导出导出整个数据库方法一：（可以导出空表 建议使用） sqlplus中 create or replace directory file_path as &apos;D:\oracle\data&apos;; cmd下（version防止数据库版本不同 服务器版、标准版） expdp fjznsd/fjznsd@localhost/orcl directory=file_path dumpfile=fjzn.dmp logfile=fjzn.log schemas=FJZNSD version=10.2.0方法二： exp qyepc/qyepc@192.168.2.83:1521/orcl file=E:\qyepc.DMP owner=qyepc（11G默认不导出空表）方法三： navicat 数据传输 同步表结构、表数据方法四： 导出表结构和数据的sql（非常慢 并且不能导出大数据字段BLOB和CLOB） Oracle 11G在用exp导出时，空表不能导出解决：1、先查询一下当前用户下的所有空表 select table_name from user_tables where NUM_ROWS=0;2、用以下这句查找空表 select &apos;alter table &apos;||table_name||&apos; allocate extent;&apos; from user_tables where num_rows=0 把查询结果导出，执行导出的语句 &apos;ALTERTABLE&apos;||TABLE_NAME||&apos;ALLOCATEEXTENT;&apos; ----------------------------------------------------------- alter table AQ$_AQ$_MEM_MC_H allocate extent; alter table AQ$_AQ$_MEM_MC_G allocate extent; alter table AQ$_AQ$_MEM_MC_I allocate extent;3、然后再执行 exp 导出 对于还没建表时（对以前导入的空表不产生作用，仍不能导出，只能对后面新增的表产生作用）：设置deferred_segment_creation参数 show parameter deferred_segment_creation alter system set deferred_segment_creation=false; show parameter deferred_segment_creation导入方法一：（建议） sqlplus中 create or replace directory file_path as &apos;D:\oracle\data&apos;; cmd下（version防止数据库版本不同 服务器版、标准版、标准版1） impdp fjznsd/fjznsd@localhost/orcl directory=file_path dumpfile=fjzn.DAT remap_schema=FJZNSD:FJZNSD table_exists_action=replace logfile=fjzn.log version=10.2.0方法二： imp IPM/IPM@localhost/orcl file=&quot;E:\123.DMP&quot; full=y;方法三： sql导入（非常慢 并且不能导入） exp/imp和expdp/impdp的区别迁移从旧表导出到新表（表合并 + 表拆分 + 字段名不同） 1.表设计 把列名改相同 2.用navicat导出成excel（记得勾选包括列名） 3.将excel类型的时间 改为文本 =TEXT(A1,’yyyy/mm/dd’) 复制后仅粘贴数值 4.在excel中 菜单栏排序后 自己检查、去重 批量生成sql 复制后仅粘贴数值： =CONCATENATE(“insert into 表名 (“,$A$1,”,”,$B$1,”,”,$C$1,”) values (‘“,A2,”‘,’”,B2,”‘,TO_DATE(‘“,C2,”‘,’yyyy/mm/dd’));”) 5.在navicat中执行sql]]></content>
       <categories>
-        <category>mysql</category>
+        <category>oracle</category>
       </categories>
       <tags>
-        <tag>SQL</tag>
-        <tag>索引</tag>
+        <tag>oracle导入导出</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[SSL证书和https协议]]></title>
+    <url>%2Fblog%2F2019%2F09%2F21%2Ftomcat%2FSSL%E8%AF%81%E4%B9%A6%E5%92%8Chttps%E5%8D%8F%E8%AE%AE%2F</url>
+    <content type="text"><![CDATA[配置https协议​ 1.单向认证，就是传输的数据加密过了，但是不会校验客户端的来源​ 2.双向认证，要求客户端浏览器没有导入客户端证书，是访问不了web系统的，找不到地址，双向认证的安全级别较高 方法1.获得证书购买或自制（购买 阿里云免费申请1年https://www.aliyun.com/product/cas JDK自带的keytool自己生成） JDK自带的keytool自己生成步骤： 1.打开 JDK 自带的 keytool 目录 2.按住 Shift 键，同时右键点击空白处。 3.cmd窗口。输入keytool -genkeypair -alias “别名” -keyalg “RSA” -keystore “D:\生成地址.keystore” -validity 36500（有效期100年 默认90天） 4.输入两次密钥、名字与姓氏:192.168.0.110或域名（以后访问的域名或IP地址，非常重要，证书和域名或IP绑定）、 剩下随便填 2.应用证书到Tomcat（SSL证书文件后缀可能是.keystore .pfx .jks 不影响配置 可以互相转换）打开 Tomcat 配置文件 conf\server.xml取消注释，并添加两个属性 keystoreFile，keystorePass。 8.5之前 8.5之后 (阿里云申请的配置keystoreFile是PFX证书文件地址，keystorePass是阿里云的订单号，keystoreType直接写PKCS12) 3.测试启动tomcat并访问https://127.0.0.1:8443如果把所有的8443改为443 则访问时 不需要加端口 即https://127.0.0.1 4.使用自己生成的证书会遇到几个问题浏览器会对 HTTPS 使用危险标识。(我们开启 HTTPS 本意是为了更安全，增加用户信心。但是浏览器使用危险标识会适得其反，吓跑用户。)浏览器默认不会加载非HTTPS域名下的javascript移动设备显示页面空白(手机浏览器打开页面，也会像桌面浏览器一样弹出是否加载不受信任的页面，在微信中打开则会一片空白)可以将证书的详细信息页面导出（复制到文件），导入浏览器（Internet选项——内容——证书——受信任的根证书颁发机构——导入证书） 5.配置强制访问https（按需 没用过）tomcat /conf/web.xml 中的 后面加上以下内容 123456789101112131415&lt;login-config&gt; &lt;!-- Authorization setting for SSL --&gt; &lt;auth-method&gt;CLIENT-CERT&lt;/auth-method&gt; &lt;realm-name&gt;Client Cert Users-only Area&lt;/realm-name&gt; &lt;/login-config&gt; &lt;security-constraint&gt; &lt;!-- Authorization setting for SSL --&gt; &lt;web-resource-collection &gt; &lt;web-resource-name &gt;SSL&lt;/web-resource-name&gt; &lt;url-pattern&gt;/*&lt;/url-pattern&gt; &lt;/web-resource-collection&gt; &lt;user-data-constraint&gt; &lt;transport-guarantee&gt;CONFIDENTIAL&lt;/transport-guarantee&gt; &lt;/user-data-constraint&gt; &lt;/security-constraint&gt; 完成以上步骤后，在浏览器中输入http的访问地址也会自动转换为https了 换成https协议以后可能出现的问题换https之前 系统正常，换了以后 不兼容IE9以下因为浏览器的兼容模式是根据域名判断的 之前用的IP地址访问，不会用到兼容模式，用域名访问就会用到兼容模式 当时情况1.必须使用IE浏览器2.必须兼容IE73.必须使用特定域名访问（兼容性通过主域名判断 即 powerchina.cn） 解决办法强制突破IE浏览器兼容性视图几种形式： &lt;meta http-equiv=&quot;X-UA-Compatible&quot; content=&quot;IE=edge&quot; &gt; &lt;meta http-equiv=&quot;X-UA-Compatible&quot; content=&quot;IE=11&quot; &gt;或 &lt;% response.addHeader(&quot;X-UA-Compatible&quot;, &quot;edge&quot;);// (似乎不起作用) %&gt;或nginx配置文件 location / { proxy_set_header X-Real-IP $remote_addr; proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for; proxy_set_header Host $http_host; proxy_pass http://127.0.0.1:8080; client_max_body_size 1000m; add_header &quot;X-UA-Compatible&quot; &quot;IE=11&quot;; }https协议下部分浏览器保存报错https携带参数限制 当时状况1.http协议正常2.https协议下谷歌浏览器数据保存时 弹窗信息是错误页面 但保存正常IE浏览器数据保存时 ajax返回信息是错误页面tomcat控制台报错信息是 org.apache.axis2.transport.http.CommonsHTTPTransport org.apache.axis2.AxisFault 但没有用到关于web service 原因传输数据量过大 50到100条数据 但主要是大段的文字（Post提交本身对于参数的长度没有限制，HTTP协议也没有限制）tomcat有限制缺省的情况下是maxPostSize=”2097152” 2M 单位是Byte 解决办法1.保存时 去掉没用的数据2.修改server.xml文件maxPostSize=”-1” 12345&lt;Connector port=&quot;8443&quot; protocol=&quot;org.apache.coyote.http11.Http11Protocol&quot; maxThreads=&quot;150&quot; SSLEnabled=&quot;true&quot; scheme=&quot;https&quot; secure=&quot;true&quot; clientAuth=&quot;false&quot; sslProtocol=&quot;TLS&quot; maxPostSize=&quot;-1&quot; keystoreFile=&quot;conf/文件.jks&quot; keystorePass=&quot;密码&quot; /&gt; 关于Tomcat的maxPostSize属性的配置需要注意的问题 除了服务器对url长度有限制 浏览器也有所有参数都拼接到访问路径上，而且都是转码后的字符，参数非常多内容又非常长,从而导致了在某些浏览器上访问时报500，原因是url的长度超出了浏览器的限制，以下是各个浏览器的url长度限制 Safari 最大长度限制为80000字节 Opera 最大长度限制为190000字节 Chrome 最大长度限制为8182字节 IE 最大长度限制为2048字节 Firefox 最大长度限制为65536字节 解决办法javascript动态创建Form表单和表单项，然后提交表单请求，最后删除表单js动态创建Form表单并提交 SSO单点登录出现文件当时状况单独访问https的项目正常，从门户系统跳转出现问题 解决办法查看报错信息1.如果是单点登录的验证出现问题 则查看单点登录的配置文件 sso-conf（本地可能没有 在服务器上）2.单点系统中用户名修改 但本系统没改 导致用户名不匹配 则重新配置组织结构里的用户名 tomcat7漏洞过多解决办法升级tomcat 换成97到8、9 配置文件需要加上URIEncoding=”ISO-8859-1”7的request请求默认是ISO-8859-18、9的request请求默认是UTF-8 升级tomcat后 部分地址不可用 错误400使用Tomcat传url地址中包含大括号{}的特殊字符无法识别问题多种解决方法tomcat升级到8之后URL中带的特殊字符如:^|报400问题解决方案url中不允许有 |，{，}等特殊字符仅在以下版本可用 8.5.x for 8.5.12 onwards 8.0.x for 8.0.42 onwards 7.0.x for 7.0.76 onwards 否则需要转义 var url = encodeURI(&quot;http://localhost:8080/default/aaa.jsp?data={name:1}&quot;);或 encodeURIComponent()]]></content>
+      <categories>
+        <category>tomcat</category>
+      </categories>
+      <tags>
+        <tag>https</tag>
+        <tag>https遇到的问题</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[完整的url地址]]></title>
+    <url>%2Fblog%2F2019%2F09%2F21%2Ftomcat%2F%E5%AE%8C%E6%95%B4%E7%9A%84url%E5%9C%B0%E5%9D%80%2F</url>
+    <content type="text"><![CDATA[在编写接口代码时，尽量使用request中获取的完整地址确保拓展性 如https协议 域名 修改端口并注释上是请求哪的服务器如果是测试数据，记得注明，测试完注释 项目名（webapp文件夹名）String path = request.getContextPath();URL地址String basePath = request.getScheme()+&quot;://&quot;+request.getServerName()+&quot;:&quot;+request.getServerPort()+path+&quot;/&quot;; &lt;a href=&quot;&lt;%=basePath%&gt;&quot; /&gt;]]></content>
+      <categories>
+        <category>tomcat</category>
+      </categories>
+      <tags>
+        <tag>url</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[指定端口、修改jdk]]></title>
+    <url>%2Fblog%2F2019%2F09%2F21%2Ftomcat%2F%E6%8C%87%E5%AE%9A%E7%AB%AF%E5%8F%A3%E3%80%81%E4%BF%AE%E6%94%B9jdk%2F</url>
+    <content type="text"></content>
+      <categories>
+        <category>tomcat</category>
+      </categories>
+      <tags>
+        <tag>tomcat指定端口、修改jdk</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[MD5、SHA1、SHA256]]></title>
+    <url>%2Fblog%2F2019%2F09%2F21%2F%E5%B8%B8%E7%94%A8%E5%8A%A0%E5%AF%86%2FMD5%E3%80%81SHA1%E3%80%81SHA256%2F</url>
+    <content type="text"><![CDATA[以下是对数据加密的几种方法 MD5,sha1,sha256; 123456789101112131415161718192021222324252627282930313233343536373839404142434445464748495051525354555657585960616263646566676869707172737475767778798081828384858687888990919293949596979899100101102103104105106107108109110111112113114115116117118119120121122123124125126127128129130131132133134135136137138139import java.io.UnsupportedEncodingException; import java.security.MessageDigest; import java.security.NoSuchAlgorithmException; import java.util.Scanner; import org.apache.commons.codec.binary.Hex; /** * 常見的几种加密方式 */ public class Encrypt &#123; public static void main(String[] args) &#123; Scanner sc = new Scanner(System.in); String next = sc.next(); //123 String md5str = string2MD5(next); //202CB962AC59075B964B07152D234B70 String sha1str = string2Sha1(next); //40bd001563085fc35165329ea1ff5c5ecbdbbeef String sha256str = String2SHA256(next); //a665a45920422f9d417e4867efdc4fb8a04a1f3fff1fa07e998e86f7f7a27ae3 String sha256Javastr = String2SHA256StrJava(next); //a665a45920422f9d417e4867efdc4fb8a04a1f3fff1fa07e998e86f7f7a27ae3 System.out.println("next"); System.out.println("md5str:"+md5str); System.out.println("sha1str:"+sha1str); System.out.println("sha256str:"+sha256str); System.out.println("sha256Javastr："+sha256Javastr); &#125; /** * MD5加密 生成32位md5码 */ public static String string2MD5(String inStr)&#123; MessageDigest md5 = null; try&#123; md5 = MessageDigest.getInstance("MD5"); &#125;catch (Exception e)&#123; System.out.println(e.toString()); e.printStackTrace(); return ""; &#125; char[] charArray = inStr.toCharArray(); byte[] byteArray = new byte[charArray.length]; for (int i = 0; i &lt; charArray.length; i++) byteArray[i] = (byte) charArray[i]; byte[] md5Bytes = md5.digest(byteArray); StringBuffer hexValue = new StringBuffer(); for (int i = 0; i &lt; md5Bytes.length; i++)&#123; int val = ((int) md5Bytes[i]) &amp; 0xff; if (val &lt; 16) hexValue.append("0"); hexValue.append(Integer.toHexString(val)); &#125; return hexValue.toString().toUpperCase(); &#125; /** * SHA1加密 * @param str * @return */ public static String string2Sha1(String str)&#123; if(str==null||str.length()==0)&#123; return null; &#125; char hexDigits[] = &#123;'0','1','2','3','4','5','6','7','8','9', 'a','b','c','d','e','f'&#125;; try &#123; MessageDigest mdTemp = MessageDigest.getInstance("SHA1"); mdTemp.update(str.getBytes("UTF-8")); byte[] md = mdTemp.digest(); int j = md.length; char buf[] = new char[j*2]; int k = 0; for (int i = 0; i &lt; j; i++) &#123; byte byte0 = md[i]; buf[k++] = hexDigits[byte0 &gt;&gt;&gt; 4 &amp; 0xf]; buf[k++] = hexDigits[byte0 &amp; 0xf]; &#125; return new String(buf); &#125; catch (Exception e) &#123; return null; &#125; &#125; /** * 利用Apache的工具类实现SHA-256加密 * 所需jar包下載 http://pan.baidu.com/s/1nuKxYGh * @param str 加密后的报文 * @return */ public static String String2SHA256(String str)&#123; MessageDigest messageDigest; String encdeStr = ""; try &#123; messageDigest = MessageDigest.getInstance("SHA-256"); byte[] hash = messageDigest.digest(str.getBytes("UTF-8")); encdeStr = Hex.encodeHexString(hash); &#125; catch (NoSuchAlgorithmException e) &#123; e.printStackTrace(); &#125; catch (UnsupportedEncodingException e) &#123; e.printStackTrace(); &#125; return encdeStr; &#125; //--------- /** * 利用java原生的摘要实现SHA256加密 * @param str 加密后的报文 * @return */ public static String String2SHA256StrJava(String str)&#123; MessageDigest messageDigest; String encodeStr = ""; try &#123; messageDigest = MessageDigest.getInstance("SHA-256"); messageDigest.update(str.getBytes("UTF-8")); encodeStr = byte2Hex(messageDigest.digest()); &#125; catch (NoSuchAlgorithmException e) &#123; e.printStackTrace(); &#125; catch (UnsupportedEncodingException e) &#123; e.printStackTrace(); &#125; return encodeStr; &#125; /** * 将byte转为16进制 * @param bytes * @return */ private static String byte2Hex(byte[] bytes)&#123; StringBuffer stringBuffer = new StringBuffer(); String temp = null; for (int i=0;i&lt;bytes.length;i++)&#123; temp = Integer.toHexString(bytes[i] &amp; 0xFF); if (temp.length()==1)&#123; //1得到一位的进行补0操作 stringBuffer.append("0"); &#125; stringBuffer.append(temp); &#125; return stringBuffer.toString(); &#125; &#125;]]></content>
+      <categories>
+        <category>常用加密</category>
+      </categories>
+      <tags>
+        <tag>加密</tag>
       </tags>
   </entry>
   <entry>
@@ -238,8 +249,8 @@
   </entry>
   <entry>
     <title></title>
-    <url>%2Fblog%2F2019%2F09%2F20%2FMyBatis%2F%23%E5%92%8C%24%2F</url>
-    <content type="text"><![CDATA[#{}:表示一个占位符号，通过#{}可以实现preparedStatement向占位符中设置值，自动进行java类型和jdbc类型转换，#{}可以有效防止sql注入。#{}可以接收简单类型值或pojo属性值。如果parameterType传输单个简单类型值，#{}括号中可以是value或其它名称。 “%”#{name}”%” ${}:表示拼接sql串，通过${}可以将parameterType 传入的内容拼接在sql中且不进行jdbc类型转换${}可以接收简单类型值或pojo属性值，如果parameterType传输单个简单类型值，${}括号中只能是value。 #{} 和 ${} 在预编译中的处理是不一样的#{} 在预处理时，会把参数部分用一个占位符 ? 代替${} 则只是简单的字符串替换，在动态解析阶段， sql 语句才会被解析 优先使用 #{}传表名时只能使用 ${}]]></content>
+    <url>%2Fblog%2F2019%2F09%2F20%2FMyBatis%2F%26%2335%3B%E5%92%8C%26%2336%2F</url>
+    <content type="text"><![CDATA[#{}:表示一个占位符号，通过#{}可以实现preparedStatement向占位符中设置值，自动进行java类型和jdbc类型转换，#{}可以有效防止sql注入。#{}可以接收简单类型值或pojo属性值。如果parameterType传输单个简单类型值，#{}括号中可以是value或其它名称。 ‘%#{name}%’ ${}:表示拼接sql串，通过${}可以将parameterType 传入的内容拼接在sql中且不进行jdbc类型转换${}可以接收简单类型值或pojo属性值，如果parameterType传输单个简单类型值，${}括号中只能是value。 #{} 和 ${} 在预编译中的处理是不一样的#{} 在预处理时，会把参数部分用一个占位符 ? 代替${} 则只是简单的字符串替换，在动态解析阶段， sql 语句才会被解析 优先使用 #{}传表名时只能使用 ${}]]></content>
       <categories>
         <category>MyBatis</category>
       </categories>

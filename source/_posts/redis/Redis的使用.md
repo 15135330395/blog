@@ -176,9 +176,9 @@ categories: redis
 redis desktop manager（RDM）
 
 不花钱的
-https://github.com/qishibo/AnotherRedisDesktopManager/ （比较简洁好看）
-https://github.com/caoxinyu/RedisClient （丑了点）
-Web Redis Manager（管理页面是layui） https://github.com/yswenli/WebRedisManager
+[AnotherRedisDesktopManager](https://github.com/qishibo/AnotherRedisDesktopManager/) （比较简洁好看）
+[RedisClient](https://github.com/caoxinyu/RedisClient) （丑了点）
+[Web Redis Manager](https://github.com/yswenli/WebRedisManager)（管理页面是layui） 
 
 ## Jedis
 

@@ -79,18 +79,18 @@
 
 
 
-<meta name="description" content="js去掉换行str=str.replace(/^\n+|\n+$/g,&amp;quot;&amp;quot;);日期的正则表达式yyyy-MM-dd    /^[1-2][0-9][0-9][0-9]-[0-1]{0,1}[0-9]-[0-3]{0,1}[0-9]$/yyyy/M/dd    /^[1-2][0-9][0-9][0-9]/[0-1]{0,1}[0-9]/[0-3]{0,1}[0-9]$/ 去掉字">
+<meta name="description" content="js去掉换行str=str.replace(/^\n+|\n+$/g,&amp;quot;&amp;quot;); 日期的正则表达式yyyy-MM-dd    /^[1-2][0-9][0-9][0-9]-[0-1]{0,1}[0-9]-[0-3]{0,1}[0-9]$/yyyy/M/dd    /^[1-2][0-9][0-9][0-9]/[0-1]{0,1}[0-9]/[0-3]{0,1}[0-9]$/ 去掉">
 <meta name="keywords" content="简单操作">
 <meta property="og:type" content="article">
 <meta property="og:title" content="简单操作">
 <meta property="og:url" content="https://15135330395.github.io/blog/2019/09/21/JS及Jquery/简单操作/index.html">
 <meta property="og:site_name" content="笔记本">
-<meta property="og:description" content="js去掉换行str=str.replace(/^\n+|\n+$/g,&amp;quot;&amp;quot;);日期的正则表达式yyyy-MM-dd    /^[1-2][0-9][0-9][0-9]-[0-1]{0,1}[0-9]-[0-3]{0,1}[0-9]$/yyyy/M/dd    /^[1-2][0-9][0-9][0-9]/[0-1]{0,1}[0-9]/[0-3]{0,1}[0-9]$/ 去掉字">
+<meta property="og:description" content="js去掉换行str=str.replace(/^\n+|\n+$/g,&amp;quot;&amp;quot;); 日期的正则表达式yyyy-MM-dd    /^[1-2][0-9][0-9][0-9]-[0-1]{0,1}[0-9]-[0-3]{0,1}[0-9]$/yyyy/M/dd    /^[1-2][0-9][0-9][0-9]/[0-1]{0,1}[0-9]/[0-3]{0,1}[0-9]$/ 去掉">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-09-24T11:33:58.631Z">
+<meta property="og:updated_time" content="2019-10-25T10:41:13.164Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="简单操作">
-<meta name="twitter:description" content="js去掉换行str=str.replace(/^\n+|\n+$/g,&amp;quot;&amp;quot;);日期的正则表达式yyyy-MM-dd    /^[1-2][0-9][0-9][0-9]-[0-1]{0,1}[0-9]-[0-3]{0,1}[0-9]$/yyyy/M/dd    /^[1-2][0-9][0-9][0-9]/[0-1]{0,1}[0-9]/[0-3]{0,1}[0-9]$/ 去掉字">
+<meta name="twitter:description" content="js去掉换行str=str.replace(/^\n+|\n+$/g,&amp;quot;&amp;quot;); 日期的正则表达式yyyy-MM-dd    /^[1-2][0-9][0-9][0-9]-[0-1]{0,1}[0-9]-[0-3]{0,1}[0-9]$/yyyy/M/dd    /^[1-2][0-9][0-9][0-9]/[0-1]{0,1}[0-9]/[0-3]{0,1}[0-9]$/ 去掉">
 
 
 
@@ -401,7 +401,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  316 字
+                  401 字
                 </span>
               
 
@@ -417,7 +417,7 @@
                   <span class="post-meta-item-text">阅读时长 &asymp;</span>
                 
                 <span title="阅读时长">
-                  1 分钟
+                  2 分钟
                 </span>
               
             </div>
@@ -438,18 +438,19 @@
       
 
       
-        <h3 id="js去掉换行"><a href="#js去掉换行" class="headerlink" title="js去掉换行"></a>js去掉换行</h3><pre><code>str=str.replace(/^\n+|\n+$/g,&quot;&quot;);</code></pre><h3 id="日期的正则表达式"><a href="#日期的正则表达式" class="headerlink" title="日期的正则表达式"></a>日期的正则表达式</h3><p>yyyy-MM-dd    /^[1-2][0-9][0-9][0-9]-[0-1]{0,1}[0-9]-[0-3]{0,1}[0-9]$/<br>yyyy/M/dd    /^[1-2][0-9][0-9][0-9]/[0-1]{0,1}[0-9]/[0-3]{0,1}[0-9]$/</p>
-<h3 id="去掉字符串中所有的空格或单引号"><a href="#去掉字符串中所有的空格或单引号" class="headerlink" title="去掉字符串中所有的空格或单引号"></a>去掉字符串中所有的空格或单引号</h3><p>str=str.replace(/\s/g,””);<br>b= b.replace(/&#39;/g, “”);</p>
-<h3 id="获得年龄"><a href="#获得年龄" class="headerlink" title="获得年龄"></a>获得年龄</h3><p>function getAge(str){<br>        var r = str.match(/^(\d{1,4})(-|/)(\d{1,2})\2(\d{1,2})$/);<br>        if(r==null)return false;<br>        var d= new Date(r[1],r[3]-1,r[4]);<br>        if(d.getFullYear()==r[1]&amp;&amp;(d.getMonth()+1)==r[3]&amp;&amp;d.getDate()==r[4]){<br>            var date = new Date();<br>            var Y = date.getFullYear() - r[1];<br>            var M = date.getMonth() + 1 - r[3];<br>            var D = date.getDate();<br>            if(parseInt(D) - parseInt(r[4]) &lt; 0){<br>                M–;<br>                if(M&lt;0){<br>                    Y–;<br>                    M = 11;<br>                }<br>            }<br>            if(M&lt;0){<br>                Y–;<br>                M = 11;<br>            }<br>            return M?(Y+”岁零”+M+”月”):(Y+”岁”);<br>        }<br>        return(“日期格式错误！”);<br>    }</p>
-<h3 id="获得天数差"><a href="#获得天数差" class="headerlink" title="获得天数差"></a>获得天数差</h3><h3 id="字符串-数组相互转换"><a href="#字符串-数组相互转换" class="headerlink" title="字符串 数组相互转换"></a>字符串 数组相互转换</h3><ol>
-<li><p>数组转字符串：<br> var a, b;<br> a = new Array(0,1,2,3,4);<br> b = a.join(“,”);</p>
+        <h3 id="js去掉换行"><a href="#js去掉换行" class="headerlink" title="js去掉换行"></a>js去掉换行</h3><p>str=str.replace(/^\n+|\n+$/g,&quot;&quot;);</p>
+<h3 id="日期的正则表达式"><a href="#日期的正则表达式" class="headerlink" title="日期的正则表达式"></a>日期的正则表达式</h3><p>yyyy-MM-dd    /^[1-2][0-9][0-9][0-9]-[0-1]{0,1}[0-9]-[0-3]{0,1}[0-9]$/<br>yyyy/M/dd    /^[1-2][0-9][0-9][0-9]/[0-1]{0,1}[0-9]/[0-3]{0,1}[0-9]$/</p>
+<h3 id="去掉字符串中所有的空格或单引号"><a href="#去掉字符串中所有的空格或单引号" class="headerlink" title="去掉字符串中所有的空格或单引号"></a>去掉字符串中所有的空格或单引号</h3><p>str=str.replace(/\s/g,&quot;&quot;);<br>b= b.replace(/&#39;/g, &quot;&quot;);</p>
+<h3 id="获得年龄"><a href="#获得年龄" class="headerlink" title="获得年龄"></a>获得年龄</h3><p>function getAge(str){<br>        var r = str.match(/^(\d{1,4})(-|/)(\d{1,2})\2(\d{1,2})$/);<br>        if(r==null)return false;<br>        var d= new Date(r[1],r[3]-1,r[4]);<br>        if(d.getFullYear()==r[1]&amp;&amp;(d.getMonth()+1)==r[3]&amp;&amp;d.getDate()==r[4]){<br>            var date = new Date();<br>            var Y = date.getFullYear() - r[1];<br>            var M = date.getMonth() + 1 - r[3];<br>            var D = date.getDate();<br>            if(parseInt(D) - parseInt(r[4]) &lt; 0){<br>                M–;<br>                if(M&lt;0){<br>                    Y–;<br>                    M = 11;<br>                }<br>            }<br>            if(M&lt;0){<br>                Y–;<br>                M = 11;<br>            }<br>            return M?(Y+&quot;岁零&quot;+M+&quot;月&quot;):(Y+&quot;岁&quot;);<br>        }<br>        return(&quot;日期格式错误！&quot;);<br>    }</p>
+<h3 id="获得天数差"><a href="#获得天数差" class="headerlink" title="获得天数差"></a>获得天数差</h3><h3 id="寻找第三方接口-判断法定节假日、调休日、周末、工作日"><a href="#寻找第三方接口-判断法定节假日、调休日、周末、工作日" class="headerlink" title="寻找第三方接口 判断法定节假日、调休日、周末、工作日"></a>寻找第三方接口 判断法定节假日、调休日、周末、工作日</h3><h3 id="字符串-数组相互转换"><a href="#字符串-数组相互转换" class="headerlink" title="字符串 数组相互转换"></a>字符串 数组相互转换</h3><ol>
+<li><p>数组转字符串：<br> var a, b;<br> a = new Array(0,1,2,3,4);<br> b = a.join(&quot;,&quot;);</p>
 </li>
-<li><p>字符串转数组：<br> var s = “abc,abcd,aaa”;<br> ss = s.split(“,”);// 在每个逗号(,)处进行分解  [“abc”, “abcd”, “aaa”]</p>
-<p> var s1 = “helloworld”;<br> ss1 = s1.split(‘’);  //[“h”, “e”, “l”, “l”, “o”, “w”, “o”, “r”, “l”, “d”]</p>
+<li><p>字符串转数组：<br> var s = &quot;abc,abcd,aaa&quot;;<br> ss = s.split(&quot;,&quot;);// 在每个逗号处进行分解  [&quot;abc&quot;, &quot;abcd&quot;, &quot;aaa&quot;]</p>
+<p> var s1 = &quot;helloworld&quot;;<br> ss1 = s1.split(‘’);  // 每个字符分解 [&quot;h&quot;, &quot;e&quot;, &quot;l&quot;, &quot;l&quot;, &quot;o&quot;, &quot;w&quot;, &quot;o&quot;, &quot;r&quot;, &quot;l&quot;, &quot;d&quot;]</p>
 </li>
 </ol>
 <h3 id="JSON的-新增-修改-删除"><a href="#JSON的-新增-修改-删除" class="headerlink" title="JSON的 新增 修改 删除"></a>JSON的 新增 修改 删除</h3><h3 id="对象的-新增-修改-删除"><a href="#对象的-新增-修改-删除" class="headerlink" title="对象的 新增 修改 删除"></a>对象的 新增 修改 删除</h3><p>删除<br>    delete 对象.属性</p>
-<h3 id="数组的-新增-修改-删除"><a href="#数组的-新增-修改-删除" class="headerlink" title="数组的 新增 修改 删除"></a>数组的 新增 修改 删除</h3>
+<h3 id="数组的-新增-修改-删除"><a href="#数组的-新增-修改-删除" class="headerlink" title="数组的 新增 修改 删除"></a>数组的 新增 修改 删除</h3><h3 id="JS中浮点型小数计算误差"><a href="#JS中浮点型小数计算误差" class="headerlink" title="JS中浮点型小数计算误差"></a>JS中浮点型小数计算误差</h3>
       
     </div>
     
@@ -508,8 +509,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/blog/2019/09/21/JS及Jquery/DOM对象/" rel="next" title="DOM对象">
-                <i class="fa fa-chevron-left"></i> DOM对象
+              <a href="/blog/2019/09/21/JS及Jquery/IE控制台报错addEventListener/" rel="next" title="IE控制台报错addEventListener">
+                <i class="fa fa-chevron-left"></i> IE控制台报错addEventListener
               </a>
             
           </div>
@@ -518,8 +519,8 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/blog/2019/09/21/tomcat/SSL证书和https协议/" rel="prev" title="SSL证书和https协议">
-                SSL证书和https协议 <i class="fa fa-chevron-right"></i>
+              <a href="/blog/2019/09/21/JS及Jquery/监听回车事件/" rel="prev" title="监听回车事件">
+                监听回车事件 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -602,7 +603,7 @@
               
                 <a href="/blog/archives/">
               
-                  <span class="site-state-item-count">28</span>
+                  <span class="site-state-item-count">29</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -624,7 +625,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/blog/tags/index.html">
-                  <span class="site-state-item-count">30</span>
+                  <span class="site-state-item-count">31</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>
@@ -693,7 +694,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#js去掉换行"><span class="nav-number">1.</span> <span class="nav-text">js去掉换行</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#日期的正则表达式"><span class="nav-number">2.</span> <span class="nav-text">日期的正则表达式</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#去掉字符串中所有的空格或单引号"><span class="nav-number">3.</span> <span class="nav-text">去掉字符串中所有的空格或单引号</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#获得年龄"><span class="nav-number">4.</span> <span class="nav-text">获得年龄</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#获得天数差"><span class="nav-number">5.</span> <span class="nav-text">获得天数差</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#字符串-数组相互转换"><span class="nav-number">6.</span> <span class="nav-text">字符串 数组相互转换</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#JSON的-新增-修改-删除"><span class="nav-number">7.</span> <span class="nav-text">JSON的 新增 修改 删除</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#对象的-新增-修改-删除"><span class="nav-number">8.</span> <span class="nav-text">对象的 新增 修改 删除</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#数组的-新增-修改-删除"><span class="nav-number">9.</span> <span class="nav-text">数组的 新增 修改 删除</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#js去掉换行"><span class="nav-number">1.</span> <span class="nav-text">js去掉换行</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#日期的正则表达式"><span class="nav-number">2.</span> <span class="nav-text">日期的正则表达式</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#去掉字符串中所有的空格或单引号"><span class="nav-number">3.</span> <span class="nav-text">去掉字符串中所有的空格或单引号</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#获得年龄"><span class="nav-number">4.</span> <span class="nav-text">获得年龄</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#获得天数差"><span class="nav-number">5.</span> <span class="nav-text">获得天数差</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#寻找第三方接口-判断法定节假日、调休日、周末、工作日"><span class="nav-number">6.</span> <span class="nav-text">寻找第三方接口 判断法定节假日、调休日、周末、工作日</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#字符串-数组相互转换"><span class="nav-number">7.</span> <span class="nav-text">字符串 数组相互转换</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#JSON的-新增-修改-删除"><span class="nav-number">8.</span> <span class="nav-text">JSON的 新增 修改 删除</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#对象的-新增-修改-删除"><span class="nav-number">9.</span> <span class="nav-text">对象的 新增 修改 删除</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#数组的-新增-修改-删除"><span class="nav-number">10.</span> <span class="nav-text">数组的 新增 修改 删除</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#JS中浮点型小数计算误差"><span class="nav-number">11.</span> <span class="nav-text">JS中浮点型小数计算误差</span></a></li></ol></div>
             
 
           </div>

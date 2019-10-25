@@ -5,6 +5,7 @@ tags: [雪花ID]
 categories: 雪花ID
 ---
 
+```java
 package com.zr.stuInfo.util;
 /**
  * Twitter_Snowflake<br>
@@ -151,3 +152,4 @@ public class SnowflakeIdWorker {
         }
     }
 }
+```

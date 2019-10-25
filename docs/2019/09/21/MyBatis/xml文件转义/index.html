@@ -87,7 +87,7 @@
 <meta property="og:site_name" content="笔记本">
 <meta property="og:description" content="xml写 大于＞  小于＜ 1.特殊标签 如：    select * from table a where a.field  20         &amp;gt;= #{field}    select * from table a where &amp;lt;if 条件&amp;gt; a.field  #{field} 2.转义字符    ＞：&amp;gt;    ＜：&amp;lt; 　在XML中，需要转义的字符有：　　(1">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-09-26T12:00:36.266Z">
+<meta property="og:updated_time" content="2019-10-25T10:45:16.363Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="xml文件转义">
 <meta name="twitter:description" content="xml写 大于＞  小于＜ 1.特殊标签 如：    select * from table a where a.field  20         &amp;gt;= #{field}    select * from table a where &amp;lt;if 条件&amp;gt; a.field  #{field} 2.转义字符    ＞：&amp;gt;    ＜：&amp;lt; 　在XML中，需要转义的字符有：　　(1">
@@ -401,7 +401,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  319 字
+                  334 字
                 </span>
               
 
@@ -441,8 +441,10 @@
         <p>xml写 大于＞  小于＜</p>
 <p>1.特殊标签<br><!--[CDATA[    ]]--></p>
 <p>如：<br>    select * from table a where a.field <!--[CDATA[ >= ]]--> 20<br>    <!--[CDATA[ select * from table a where a.field >= 20 ]]--><br>    <!--[CDATA[ select * from table a where a.field  ]]--> &gt;= #{field}<br>    select * from table a where &lt;if 条件&gt; a.field <!--[CDATA[ >= ]]--> #{field} <br>2.转义字符<br>    ＞：&gt;<br>    ＜：&lt;</p>
-<p>　在XML中，需要转义的字符有：<br>　　(1)&amp;　　　&amp;<br>　　(2)&lt;　　　&lt;<br>　　(3)&gt;　　　&gt;<br>　　(4)＂　　　&quot;<br>　　(5)＇　　　&apos;<br>　　但是严格来说，在XML中只有”&lt;”和”&amp;”是非法的，其它三个都是可以合法存在的，但是，把它们都进行转义是一个好的习惯。<br>　　不管怎么样，转义前的字符也好，转义后的字符也好，都会被xml解析器解析，为了方便起见，使用<!--[CDATA[]]-->来包含不被xml解析器解析的内容。但要注意的是：<br>　　(1) 此部分不能再包含”]]&gt;”；<br>　　(2) 不允许嵌套使用；<br>　　(3)”]]&gt;”这部分不能包含空格或者换行。 </p>
+<p>　在XML中，需要转义的字符有：<br>　　(1)&amp;　 　　&amp;<br>　　(2)＞　　　&lt;<br>　　(3)＞　　　&gt;<br>　　(4)” 　　　&quot;<br>　　(5)＇　　　&apos;<br>　　但是严格来说，在XML中只有”&lt;”和”&amp;”是非法的，其它三个都是可以合法存在的，但是，把它们都进行转义是一个好的习惯。<br>　　不管怎么样，转义前的字符也好，转义后的字符也好，都会被xml解析器解析，为了方便起见，使用<!--[CDATA[]]-->来包含不被xml解析器解析的内容。但要注意的是：<br>　　(1) 此部分不能再包含”]]&gt;”；<br>　　(2) 不允许嵌套使用；<br>　　(3)”]]&gt;”这部分不能包含空格或者换行。 </p>
 <p>　　最后，说说<!--[CDATA[]]-->和xml转移字符的关系，它们两个看起来是不是感觉功能重复了？<br>　　是的，它们的功能就是一样的，只是应用场景和需求有些不同：<br>　　(1)<!--[CDATA[]]-->不能适用所有情况，转义字符可以；<br>　　(2) 对于短字符串<!--[CDATA[]]-->写起来啰嗦，对于长字符串转义字符写起来可读性差；<br>　　(3) <!--[CDATA[]]-->表示xml解析器忽略解析，所以更快。</p>
+<p><a href="http://tool.oschina.net/commons?type=2" target="_blank" rel="noopener">HTML特殊转义字符对照表</a></p>
+<p><a href="https://www.qqxiuzi.cn/bianma/zifushiti.php" target="_blank" rel="noopener">HTML字符实体转换</a></p>
 
       
     </div>
@@ -502,8 +504,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/blog/2019/09/21/oracle/入门操作/" rel="next" title="入门操作">
-                <i class="fa fa-chevron-left"></i> 入门操作
+              <a href="/blog/2019/09/21/github/github pages博客/" rel="next" title="github pages博客">
+                <i class="fa fa-chevron-left"></i> github pages博客
               </a>
             
           </div>
@@ -512,8 +514,8 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/blog/2019/09/21/常用加密/MD5、SHA1、SHA256/" rel="prev" title="MD5、SHA1、SHA256">
-                MD5、SHA1、SHA256 <i class="fa fa-chevron-right"></i>
+              <a href="/blog/2019/09/21/JS及Jquery/自定义编码/" rel="prev" title="自定义编码">
+                自定义编码 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -587,7 +589,7 @@
               
                 <a href="/blog/archives/">
               
-                  <span class="site-state-item-count">28</span>
+                  <span class="site-state-item-count">29</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -609,7 +611,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/blog/tags/index.html">
-                  <span class="site-state-item-count">30</span>
+                  <span class="site-state-item-count">31</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>

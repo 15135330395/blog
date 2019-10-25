@@ -11,7 +11,9 @@ categories: tomcat
 如果是测试数据，记得注明，测试完注释
 
 ### 项目名（webapp文件夹名）
-String path = request.getContextPath();
+
+    String path = request.getContextPath();
 ### URL地址
-String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path+"/";
-<a href="<%=basePath%>" />
+
+    String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path+"/";
+    <a href="<%=basePath%>" />

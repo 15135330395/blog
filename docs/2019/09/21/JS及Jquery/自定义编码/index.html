@@ -79,18 +79,18 @@
 
 
 
-<meta name="description" content="//根据表名和编码字段获取最大编码function createOAMaxCode(module,tablename,codefiled){        var yearAndMonth=nui.formatDate(new Date(),”yyyyMM”);        var maxCode  = “”;        var sqlStr =” select max(substr(“+c">
+<meta name="description" content="123456789101112131415161718192021222324252627282930313233//根据表名和编码字段获取最大编码function createOAMaxCode(module,tablename,codefiled)&amp;#123;        var yearAndMonth=nui.formatDate(new Date(),&quot;yyyyMM&quot;);">
 <meta name="keywords" content="自定义编码">
 <meta property="og:type" content="article">
 <meta property="og:title" content="自定义编码">
 <meta property="og:url" content="https://15135330395.github.io/blog/2019/09/21/JS及Jquery/自定义编码/index.html">
 <meta property="og:site_name" content="笔记本">
-<meta property="og:description" content="//根据表名和编码字段获取最大编码function createOAMaxCode(module,tablename,codefiled){        var yearAndMonth=nui.formatDate(new Date(),”yyyyMM”);        var maxCode  = “”;        var sqlStr =” select max(substr(“+c">
+<meta property="og:description" content="123456789101112131415161718192021222324252627282930313233//根据表名和编码字段获取最大编码function createOAMaxCode(module,tablename,codefiled)&amp;#123;        var yearAndMonth=nui.formatDate(new Date(),&quot;yyyyMM&quot;);">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-09-22T10:19:28.192Z">
+<meta property="og:updated_time" content="2019-10-25T10:42:01.448Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="自定义编码">
-<meta name="twitter:description" content="//根据表名和编码字段获取最大编码function createOAMaxCode(module,tablename,codefiled){        var yearAndMonth=nui.formatDate(new Date(),”yyyyMM”);        var maxCode  = “”;        var sqlStr =” select max(substr(“+c">
+<meta name="twitter:description" content="123456789101112131415161718192021222324252627282930313233//根据表名和编码字段获取最大编码function createOAMaxCode(module,tablename,codefiled)&amp;#123;        var yearAndMonth=nui.formatDate(new Date(),&quot;yyyyMM&quot;);">
 
 
 
@@ -401,7 +401,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  201 字
+                  218 字
                 </span>
               
 
@@ -438,8 +438,7 @@
       
 
       
-        <p>//根据表名和编码字段获取最大编码<br>function createOAMaxCode(module,tablename,codefiled){<br>        var yearAndMonth=nui.formatDate(new Date(),”yyyyMM”);<br>        var maxCode  = “”;<br>        var sqlStr =” select max(substr(“+codefiled+”,-3)) as maxCode from “+tablename+” where “+codefiled+” like ‘“+module+”-“+new Date().getFullYear()+”%’”;<br>        console.log(sqlStr);<br>        var ret = ERP.runSql(sqlStr, “select”, false);<br>        console.log(ret);<br>        var retNum = parseInt(ret.dataObject[0].MAXCODE);<br>        console.log(retNum);<br>        var re = /^[0-9]+.?[0-9]*/;//判断字符串是否为数字//判断正整数/[1−9]+[0−9]∗]∗/<br>        if(ret.result == ‘success’ &amp;&amp; isEmpty(ret.dataObject[0].MAXCODE)){//如果是新的一年则编码从1计数<br>        maxCode=”001”;<br>        }else if( !re.test(ret.dataObject[0].MAXCODE)){//查询出错<br>        maxCode=”编码生成错误，请手动输入..”;<br>        } else{<br>        maxCode = PrefixInteger(retNum+1,3);//最大编码数值<br>        }<br>        var modeCode = module+”-“+yearAndMonth+”-“+maxCode;<br>        return modeCode;<br>}<br>//补0<br>function PrefixInteger(num, length) {<br>    return (Array(length).join(‘0’) + num).slice(-length);<br>}<br>//判断字符是否为空<br>function isEmpty(obj){<br>    if(typeof obj == “undefined” || obj == null || obj == “”){<br>        return true;<br>    }else{<br>        return false;<br>    }<br>}</p>
-
+        <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//根据表名和编码字段获取最大编码</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">createOAMaxCode</span>(<span class="params">module,tablename,codefiled</span>)</span>&#123;</span><br><span class="line">        <span class="keyword">var</span> yearAndMonth=nui.formatDate(<span class="keyword">new</span> <span class="built_in">Date</span>(),<span class="string">"yyyyMM"</span>);</span><br><span class="line">        <span class="keyword">var</span> maxCode  = <span class="string">""</span>;</span><br><span class="line">        <span class="keyword">var</span> sqlStr =<span class="string">" select max(substr("</span>+codefiled+<span class="string">",-3)) as maxCode from "</span>+tablename+<span class="string">" where "</span>+codefiled+<span class="string">" like '"</span>+<span class="built_in">module</span>+<span class="string">"-"</span>+<span class="keyword">new</span> <span class="built_in">Date</span>().getFullYear()+<span class="string">"%'"</span>;</span><br><span class="line">        <span class="built_in">console</span>.log(sqlStr);</span><br><span class="line">        <span class="keyword">var</span> ret = ERP.runSql(sqlStr, <span class="string">"select"</span>, <span class="literal">false</span>);</span><br><span class="line">        <span class="built_in">console</span>.log(ret);</span><br><span class="line">        <span class="keyword">var</span> retNum = <span class="built_in">parseInt</span>(ret.dataObject[<span class="number">0</span>].MAXCODE); </span><br><span class="line">        <span class="built_in">console</span>.log(retNum);</span><br><span class="line">        <span class="keyword">var</span> re = <span class="regexp">/^[0-9]+.?[0-9]*/</span>;<span class="comment">//判断字符串是否为数字//判断正整数/[1−9]+[0−9]∗]∗/ </span></span><br><span class="line">        <span class="keyword">if</span>(ret.result == <span class="string">'success'</span> &amp;&amp; isEmpty(ret.dataObject[<span class="number">0</span>].MAXCODE))&#123;<span class="comment">//如果是新的一年则编码从1计数</span></span><br><span class="line">        maxCode=<span class="string">"001"</span>;</span><br><span class="line">        &#125;<span class="keyword">else</span> <span class="keyword">if</span>( !re.test(ret.dataObject[<span class="number">0</span>].MAXCODE))&#123;<span class="comment">//查询出错</span></span><br><span class="line">        maxCode=<span class="string">"编码生成错误，请手动输入.."</span>;</span><br><span class="line">        &#125; <span class="keyword">else</span>&#123;</span><br><span class="line">        maxCode = PrefixInteger(retNum+<span class="number">1</span>,<span class="number">3</span>);<span class="comment">//最大编码数值</span></span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">var</span> modeCode = <span class="built_in">module</span>+<span class="string">"-"</span>+yearAndMonth+<span class="string">"-"</span>+maxCode;</span><br><span class="line">        <span class="keyword">return</span> modeCode;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//补0</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">PrefixInteger</span>(<span class="params">num, length</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> (<span class="built_in">Array</span>(length).join(<span class="string">'0'</span>) + num).slice(-length);</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//判断字符是否为空</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">isEmpty</span>(<span class="params">obj</span>)</span>&#123;</span><br><span class="line">    <span class="keyword">if</span>(<span class="keyword">typeof</span> obj == <span class="string">"undefined"</span> || obj == <span class="literal">null</span> || obj == <span class="string">""</span>)&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">    &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
       
     </div>
     
@@ -498,8 +497,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/blog/2019/09/21/JS及Jquery/监听回车事件/" rel="next" title="监听回车事件">
-                <i class="fa fa-chevron-left"></i> 监听回车事件
+              <a href="/blog/2019/09/21/MyBatis/xml文件转义/" rel="next" title="xml文件转义">
+                <i class="fa fa-chevron-left"></i> xml文件转义
               </a>
             
           </div>
@@ -508,8 +507,8 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/blog/2019/09/21/JS及Jquery/ajax参数/" rel="prev" title="ajax参数">
-                ajax参数 <i class="fa fa-chevron-right"></i>
+              <a href="/blog/2019/09/21/JS及Jquery/IE控制台报错addEventListener/" rel="prev" title="IE控制台报错addEventListener">
+                IE控制台报错addEventListener <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -583,7 +582,7 @@
               
                 <a href="/blog/archives/">
               
-                  <span class="site-state-item-count">28</span>
+                  <span class="site-state-item-count">29</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -605,7 +604,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/blog/tags/index.html">
-                  <span class="site-state-item-count">30</span>
+                  <span class="site-state-item-count">31</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>

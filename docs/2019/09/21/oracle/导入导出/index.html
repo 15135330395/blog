@@ -79,18 +79,18 @@
 
 
 
-<meta name="description" content="导出导出整个数据库方法一：导出表结构和数据的sql（非常慢 并且不能导出大数据字段BLOB和CLOB   但稳妥） 方法二：exp qyepc/qyepc@192.168.2.83:1521/orcl file=E:\Desktop\qyepc20190626.DMP owner=qyepc（11G默认不导出空表）     exp IPM/ipm@192.168.0.3:1521/orcl fil">
+<meta name="description" content="导出导出整个数据库方法一：（可以导出空表 建议使用） sqlplus中     create or replace directory file_path as &amp;apos;D:\oracle\data&amp;apos;; cmd下（version防止数据库版本不同 服务器版、标准版）     expdp fjznsd/fjznsd@localhost/orcl directory=file_path">
 <meta name="keywords" content="oracle导入导出">
 <meta property="og:type" content="article">
 <meta property="og:title" content="导入导出">
 <meta property="og:url" content="https://15135330395.github.io/blog/2019/09/21/oracle/导入导出/index.html">
 <meta property="og:site_name" content="笔记本">
-<meta property="og:description" content="导出导出整个数据库方法一：导出表结构和数据的sql（非常慢 并且不能导出大数据字段BLOB和CLOB   但稳妥） 方法二：exp qyepc/qyepc@192.168.2.83:1521/orcl file=E:\Desktop\qyepc20190626.DMP owner=qyepc（11G默认不导出空表）     exp IPM/ipm@192.168.0.3:1521/orcl fil">
+<meta property="og:description" content="导出导出整个数据库方法一：（可以导出空表 建议使用） sqlplus中     create or replace directory file_path as &amp;apos;D:\oracle\data&amp;apos;; cmd下（version防止数据库版本不同 服务器版、标准版）     expdp fjznsd/fjznsd@localhost/orcl directory=file_path">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-09-26T12:01:36.705Z">
+<meta property="og:updated_time" content="2019-10-25T10:51:51.634Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="导入导出">
-<meta name="twitter:description" content="导出导出整个数据库方法一：导出表结构和数据的sql（非常慢 并且不能导出大数据字段BLOB和CLOB   但稳妥） 方法二：exp qyepc/qyepc@192.168.2.83:1521/orcl file=E:\Desktop\qyepc20190626.DMP owner=qyepc（11G默认不导出空表）     exp IPM/ipm@192.168.0.3:1521/orcl fil">
+<meta name="twitter:description" content="导出导出整个数据库方法一：（可以导出空表 建议使用） sqlplus中     create or replace directory file_path as &amp;apos;D:\oracle\data&amp;apos;; cmd下（version防止数据库版本不同 服务器版、标准版）     expdp fjznsd/fjznsd@localhost/orcl directory=file_path">
 
 
 
@@ -401,7 +401,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  391 字
+                  539 字
                 </span>
               
 
@@ -417,7 +417,7 @@
                   <span class="post-meta-item-text">阅读时长 &asymp;</span>
                 
                 <span title="阅读时长">
-                  1 分钟
+                  2 分钟
                 </span>
               
             </div>
@@ -438,24 +438,30 @@
       
 
       
-        <h2 id="导出"><a href="#导出" class="headerlink" title="导出"></a>导出</h2><h3 id="导出整个数据库"><a href="#导出整个数据库" class="headerlink" title="导出整个数据库"></a>导出整个数据库</h3><pre><code>方法一：导出表结构和数据的sql（非常慢 并且不能导出大数据字段BLOB和CLOB   但稳妥）
-方法二：exp qyepc/qyepc@192.168.2.83:1521/orcl file=E:\Desktop\qyepc20190626.DMP owner=qyepc（11G默认不导出空表）
-    exp IPM/ipm@192.168.0.3:1521/orcl file=E:\123.DMP owner=IPM
-    exp htprp/htprp@10.1.242.210:1521/ORCL7 file=E:\htprp.DMP owner=htprp</code></pre><h4 id="Oracle-11G在用EXP-导出时，空表不能导出解决："><a href="#Oracle-11G在用EXP-导出时，空表不能导出解决：" class="headerlink" title="Oracle 11G在用EXP 导出时，空表不能导出解决："></a>Oracle 11G在用EXP 导出时，空表不能导出解决：</h4><pre><code>1、先查询一下当前用户下的所有空表
-  select table_name from user_tables where NUM_ROWS=0;
-2、用以下这句查找空表
-  select &apos;alter table &apos;||table_name||&apos; allocate extent;&apos; from user_tables where num_rows=0
- 把查询结果导出，执行导出的语句
-  &apos;ALTERTABLE&apos;||TABLE_NAME||&apos;ALLOCATEEXTENT;&apos;
-  -----------------------------------------------------------
-  alter table AQ$_AQ$_MEM_MC_H allocate extent;
-  alter table AQ$_AQ$_MEM_MC_G allocate extent;
-  alter table AQ$_AQ$_MEM_MC_I allocate extent;
-3、然后再执行
-   exp 导出</code></pre><h4 id="对于还没建表时（对以前导入的空表不产生作用，仍不能导出，只能对后面新增的表产生作用）："><a href="#对于还没建表时（对以前导入的空表不产生作用，仍不能导出，只能对后面新增的表产生作用）：" class="headerlink" title="对于还没建表时（对以前导入的空表不产生作用，仍不能导出，只能对后面新增的表产生作用）："></a>对于还没建表时（对以前导入的空表不产生作用，仍不能导出，只能对后面新增的表产生作用）：</h4><pre><code>设置deferred_segment_creation参数
-show parameter deferred_segment_creation 
+        <h2 id="导出"><a href="#导出" class="headerlink" title="导出"></a>导出</h2><h3 id="导出整个数据库"><a href="#导出整个数据库" class="headerlink" title="导出整个数据库"></a>导出整个数据库</h3><p>方法一：（可以导出空表 建议使用）</p>
+<pre><code>sqlplus中
+    create or replace directory file_path as &apos;D:\oracle\data&apos;;
+cmd下（version防止数据库版本不同 服务器版、标准版）
+    expdp fjznsd/fjznsd@localhost/orcl directory=file_path dumpfile=fjzn.dmp logfile=fjzn.log schemas=FJZNSD version=10.2.0</code></pre><p>方法二：</p>
+<pre><code>exp qyepc/qyepc@192.168.2.83:1521/orcl file=E:\qyepc.DMP owner=qyepc（11G默认不导出空表）</code></pre><p>方法三：<br>    navicat 数据传输 同步表结构、表数据<br>方法四：<br>    导出表结构和数据的sql（非常慢 并且不能导出大数据字段BLOB和CLOB）</p>
+<h4 id="Oracle-11G在用exp导出时，空表不能导出解决："><a href="#Oracle-11G在用exp导出时，空表不能导出解决：" class="headerlink" title="Oracle 11G在用exp导出时，空表不能导出解决："></a>Oracle 11G在用exp导出时，空表不能导出解决：</h4><p>1、先查询一下当前用户下的所有空表</p>
+<pre><code>select table_name from user_tables where NUM_ROWS=0;</code></pre><p>2、用以下这句查找空表</p>
+<pre><code>select &apos;alter table &apos;||table_name||&apos; allocate extent;&apos; from user_tables where num_rows=0</code></pre><p> 把查询结果导出，执行导出的语句</p>
+<pre><code>&apos;ALTERTABLE&apos;||TABLE_NAME||&apos;ALLOCATEEXTENT;&apos;
+-----------------------------------------------------------
+alter table AQ$_AQ$_MEM_MC_H allocate extent;
+alter table AQ$_AQ$_MEM_MC_G allocate extent;
+alter table AQ$_AQ$_MEM_MC_I allocate extent;</code></pre><p>3、然后再执行<br>   exp 导出</p>
+<h4 id="对于还没建表时（对以前导入的空表不产生作用，仍不能导出，只能对后面新增的表产生作用）："><a href="#对于还没建表时（对以前导入的空表不产生作用，仍不能导出，只能对后面新增的表产生作用）：" class="headerlink" title="对于还没建表时（对以前导入的空表不产生作用，仍不能导出，只能对后面新增的表产生作用）："></a>对于还没建表时（对以前导入的空表不产生作用，仍不能导出，只能对后面新增的表产生作用）：</h4><p>设置deferred_segment_creation参数</p>
+<pre><code>show parameter deferred_segment_creation 
 alter system set deferred_segment_creation=false;
-show parameter deferred_segment_creation</code></pre><h2 id="导入"><a href="#导入" class="headerlink" title="导入"></a>导入</h2><h2 id="迁移"><a href="#迁移" class="headerlink" title="迁移"></a>迁移</h2><p>从旧表导出到新表（表合并 + 表拆分 + 字段名不同）<br>    1.表设计 把列名改相同<br>    2.用navicat导出成excel（记得勾选包括列名）<br>    3.将excel类型的时间 改为文本<br>       =TEXT(A1,’yyyy/mm/dd’) 复制后仅粘贴数值<br>    4.在excel中 菜单栏排序后 自己检查、去重  批量生成sql 复制后仅粘贴数值：<br>       =CONCATENATE(“insert into 表名 (“,$A$1,”,”,$B$1,”,”,$C$1,”) values (‘“,A2,”‘,’”,B2,”‘,TO_DATE(‘“,C2,”‘,’yyyy/mm/dd’));”)<br>    5.在navicat中执行sql</p>
+show parameter deferred_segment_creation</code></pre><h2 id="导入"><a href="#导入" class="headerlink" title="导入"></a>导入</h2><p>方法一：（建议）</p>
+<pre><code>sqlplus中
+    create or replace directory file_path as &apos;D:\oracle\data&apos;;
+cmd下（version防止数据库版本不同 服务器版、标准版、标准版1）
+    impdp fjznsd/fjznsd@localhost/orcl directory=file_path dumpfile=fjzn.DAT remap_schema=FJZNSD:FJZNSD table_exists_action=replace logfile=fjzn.log version=10.2.0</code></pre><p>方法二：</p>
+<pre><code>imp IPM/IPM@localhost/orcl file=&quot;E:\123.DMP&quot; full=y;</code></pre><p>方法三：<br>    sql导入（非常慢 并且不能导入）</p>
+<h2 id="exp-imp和expdp-impdp的区别"><a href="#exp-imp和expdp-impdp的区别" class="headerlink" title="exp/imp和expdp/impdp的区别"></a>exp/imp和expdp/impdp的区别</h2><h2 id="迁移"><a href="#迁移" class="headerlink" title="迁移"></a>迁移</h2><p>从旧表导出到新表（表合并 + 表拆分 + 字段名不同）<br>    1.表设计 把列名改相同<br>    2.用navicat导出成excel（记得勾选包括列名）<br>    3.将excel类型的时间 改为文本<br>       =TEXT(A1,’yyyy/mm/dd’) 复制后仅粘贴数值<br>    4.在excel中 菜单栏排序后 自己检查、去重  批量生成sql 复制后仅粘贴数值：<br>       =CONCATENATE(“insert into 表名 (“,$A$1,”,”,$B$1,”,”,$C$1,”) values (‘“,A2,”‘,’”,B2,”‘,TO_DATE(‘“,C2,”‘,’yyyy/mm/dd’));”)<br>    5.在navicat中执行sql</p>
 
       
     </div>
@@ -515,8 +521,8 @@ show parameter deferred_segment_creation</code></pre><h2 id="导入"><a href="#�
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/blog/2019/09/21/tomcat/指定端口、修改jdk/" rel="next" title="指定端口、修改jdk">
-                <i class="fa fa-chevron-left"></i> 指定端口、修改jdk
+              <a href="/blog/2019/09/21/tomcat/SSL证书和https协议/" rel="next" title="SSL证书和https协议">
+                <i class="fa fa-chevron-left"></i> SSL证书和https协议
               </a>
             
           </div>
@@ -525,8 +531,8 @@ show parameter deferred_segment_creation</code></pre><h2 id="导入"><a href="#�
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/blog/2019/09/21/tomcat/完整的url地址/" rel="prev" title="完整的url地址">
-                完整的url地址 <i class="fa fa-chevron-right"></i>
+              <a href="/blog/2019/09/21/oracle/入门操作/" rel="prev" title="入门操作">
+                入门操作 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -609,7 +615,7 @@ show parameter deferred_segment_creation</code></pre><h2 id="导入"><a href="#�
               
                 <a href="/blog/archives/">
               
-                  <span class="site-state-item-count">28</span>
+                  <span class="site-state-item-count">29</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -631,7 +637,7 @@ show parameter deferred_segment_creation</code></pre><h2 id="导入"><a href="#�
               
               <div class="site-state-item site-state-tags">
                 <a href="/blog/tags/index.html">
-                  <span class="site-state-item-count">30</span>
+                  <span class="site-state-item-count">31</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>
@@ -700,7 +706,7 @@ show parameter deferred_segment_creation</code></pre><h2 id="导入"><a href="#�
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#导出"><span class="nav-number">1.</span> <span class="nav-text">导出</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#导出整个数据库"><span class="nav-number">1.1.</span> <span class="nav-text">导出整个数据库</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Oracle-11G在用EXP-导出时，空表不能导出解决："><span class="nav-number">1.1.1.</span> <span class="nav-text">Oracle 11G在用EXP 导出时，空表不能导出解决：</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#对于还没建表时（对以前导入的空表不产生作用，仍不能导出，只能对后面新增的表产生作用）："><span class="nav-number">1.1.2.</span> <span class="nav-text">对于还没建表时（对以前导入的空表不产生作用，仍不能导出，只能对后面新增的表产生作用）：</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#导入"><span class="nav-number">2.</span> <span class="nav-text">导入</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#迁移"><span class="nav-number">3.</span> <span class="nav-text">迁移</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#导出"><span class="nav-number">1.</span> <span class="nav-text">导出</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#导出整个数据库"><span class="nav-number">1.1.</span> <span class="nav-text">导出整个数据库</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Oracle-11G在用exp导出时，空表不能导出解决："><span class="nav-number">1.1.1.</span> <span class="nav-text">Oracle 11G在用exp导出时，空表不能导出解决：</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#对于还没建表时（对以前导入的空表不产生作用，仍不能导出，只能对后面新增的表产生作用）："><span class="nav-number">1.1.2.</span> <span class="nav-text">对于还没建表时（对以前导入的空表不产生作用，仍不能导出，只能对后面新增的表产生作用）：</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#导入"><span class="nav-number">2.</span> <span class="nav-text">导入</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#exp-imp和expdp-impdp的区别"><span class="nav-number">3.</span> <span class="nav-text">exp/imp和expdp/impdp的区别</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#迁移"><span class="nav-number">4.</span> <span class="nav-text">迁移</span></a></li></ol></div>
             
 
           </div>

@@ -79,18 +79,18 @@
 
 
 
-<meta name="description" content="1.cmd下 sqlplus 进入oracleconnect as sysdba 登陆（需要设置登陆验证 安装目录\product\NETWORK\ADMINNONE\sqlnet.ora 里面NONE状态无效 但可以登陆远程服务器）或 sqlplus / as sysdba alter user scott account unlockconn scott/tiger 2.创建表空间create">
+<meta name="description" content="1.cmd下 sqlplus 进入oracleconnect as sysdba 登陆（需要设置登陆验证 安装目录\product\NETWORK\ADMINNONE\sqlnet.ora 里面NONE状态无效 但可以登陆远程服务器） 或 sqlplus / as sysdba  alter user scott account unlock conn scott/tiger2.创建表空间crea">
 <meta name="keywords" content="入门操作">
 <meta property="og:type" content="article">
 <meta property="og:title" content="入门操作">
 <meta property="og:url" content="https://15135330395.github.io/blog/2019/09/21/oracle/入门操作/index.html">
 <meta property="og:site_name" content="笔记本">
-<meta property="og:description" content="1.cmd下 sqlplus 进入oracleconnect as sysdba 登陆（需要设置登陆验证 安装目录\product\NETWORK\ADMINNONE\sqlnet.ora 里面NONE状态无效 但可以登陆远程服务器）或 sqlplus / as sysdba alter user scott account unlockconn scott/tiger 2.创建表空间create">
+<meta property="og:description" content="1.cmd下 sqlplus 进入oracleconnect as sysdba 登陆（需要设置登陆验证 安装目录\product\NETWORK\ADMINNONE\sqlnet.ora 里面NONE状态无效 但可以登陆远程服务器） 或 sqlplus / as sysdba  alter user scott account unlock conn scott/tiger2.创建表空间crea">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-09-24T01:43:36.119Z">
+<meta property="og:updated_time" content="2019-10-25T10:51:06.485Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="入门操作">
-<meta name="twitter:description" content="1.cmd下 sqlplus 进入oracleconnect as sysdba 登陆（需要设置登陆验证 安装目录\product\NETWORK\ADMINNONE\sqlnet.ora 里面NONE状态无效 但可以登陆远程服务器）或 sqlplus / as sysdba alter user scott account unlockconn scott/tiger 2.创建表空间create">
+<meta name="twitter:description" content="1.cmd下 sqlplus 进入oracleconnect as sysdba 登陆（需要设置登陆验证 安装目录\product\NETWORK\ADMINNONE\sqlnet.ora 里面NONE状态无效 但可以登陆远程服务器） 或 sqlplus / as sysdba  alter user scott account unlock conn scott/tiger2.创建表空间crea">
 
 
 
@@ -401,7 +401,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  442 字
+                  453 字
                 </span>
               
 
@@ -417,7 +417,7 @@
                   <span class="post-meta-item-text">阅读时长 &asymp;</span>
                 
                 <span title="阅读时长">
-                  1 分钟
+                  2 分钟
                 </span>
               
             </div>
@@ -438,19 +438,29 @@
       
 
       
-        <h3 id="1-cmd下-sqlplus-进入oracle"><a href="#1-cmd下-sqlplus-进入oracle" class="headerlink" title="1.cmd下 sqlplus 进入oracle"></a>1.cmd下 sqlplus 进入oracle</h3><p>connect as sysdba 登陆（需要设置登陆验证 安装目录\product\NETWORK\ADMINNONE\sqlnet.ora 里面NONE状态无效 但可以登陆远程服务器）<br>或 sqlplus / as sysdba</p>
-<p>alter user scott account unlock<br>conn scott/tiger</p>
-<h3 id="2-创建表空间"><a href="#2-创建表空间" class="headerlink" title="2.创建表空间"></a>2.创建表空间</h3><p>create tablespace XNYMPMS<br>logging<br>datafile ‘D:\oracle\oradata\orcl\XNYMPMS.dbf’<br>size 50m<br>autoextend on<br>next 50m maxsize 20480m<br>extent management local;</p>
-<h3 id="（3-删除用户以及其数据）"><a href="#（3-删除用户以及其数据）" class="headerlink" title="（3.删除用户以及其数据）"></a>（3.删除用户以及其数据）</h3><p>drop user qyepc cascade;</p>
-<h3 id="4-创建用户"><a href="#4-创建用户" class="headerlink" title="4.创建用户"></a>4.创建用户</h3><p>create user XNYMPMS identified by XNYMPMS default tablespace XNYMPMS;<br>create user qyepc identified by qyepc;</p>
-<h3 id="5-赋予权限"><a href="#5-赋予权限" class="headerlink" title="5.赋予权限"></a>5.赋予权限</h3><p>grant connect,resource,dba to XNYMPMS; </p>
-<h3 id="6-cmd下导入oracle的dmp文件"><a href="#6-cmd下导入oracle的dmp文件" class="headerlink" title="6.cmd下导入oracle的dmp文件"></a>6.cmd下导入oracle的dmp文件</h3><p>imp qyepc/qyepc@localhost/orcl file=”qyepc20190730.DMP” full=y;</p>
-<h3 id="修改dbf文件路径"><a href="#修改dbf文件路径" class="headerlink" title="修改dbf文件路径"></a>修改dbf文件路径</h3><p>（sys as sysdba）<br>关闭数据库<br>shutdown immediate;<br>以mount方式启动数据库<br>startup mount;<br>修改dbf文件路径<br>alter database rename file ‘D:\oracletableplace\XNYMPMS.DBF’ to ‘D:\oracle\oradata\orcl\XNYMPMS.dbf’;<br>打开数据库<br>alter database open;</p>
-<h2 id="oracle默认排序"><a href="#oracle默认排序" class="headerlink" title="oracle默认排序"></a>oracle默认排序</h2><p>Oracle查询以堆读取数据 结果无序  rowid 可能会有排序的假象</p>
-<h2 id="dual"><a href="#dual" class="headerlink" title="dual"></a>dual</h2><p>伪表 只有一行一列DUMMY 数据为VERCHAR2(1) ‘X’   为了让select语句完整 符合语法规则<br>select 1+2 from dual</p>
-<h2 id="修改密码"><a href="#修改密码" class="headerlink" title="修改密码"></a>修改密码</h2><h2 id="忘记密码"><a href="#忘记密码" class="headerlink" title="忘记密码"></a>忘记密码</h2><h3 id="windows"><a href="#windows" class="headerlink" title="windows"></a>windows</h3><p>1.忘记system 和sys密码 但用操作系统验证sqlplus / as sysdba能够登陆<br>    登陆后直接修改密码 解锁账户<br>2.忘记system 和sys密码（只忘记一个 用另一个改密码）且操作系统为家庭版（无本地策略组）、设为NTS 操作系统验证仍然无权限<br>    管理员cmd下 orapwd file=安装路径\database\PWDorcl.ora password=orcl force=y nosysdba=n<br>    修改密码alter user system identified by orcl<br>    解锁账户alter user system account unlock</p>
-<h3 id="linux"><a href="#linux" class="headerlink" title="linux"></a>linux</h3><p>如果忘记密码 可以登陆oracle用户（windows本地策略组也有） 进行操作系统验证<br>也可以重置密码orapwd file=安装路径\dbs\ORAPWorcl password=orcl force=y nosysdba=n</p>
+        <h3 id="1-cmd下-sqlplus-进入oracle"><a href="#1-cmd下-sqlplus-进入oracle" class="headerlink" title="1.cmd下 sqlplus 进入oracle"></a>1.cmd下 sqlplus 进入oracle</h3><pre><code>connect as sysdba 登陆（需要设置登陆验证 安装目录\product\NETWORK\ADMINNONE\sqlnet.ora 里面NONE状态无效 但可以登陆远程服务器）
+或
+sqlplus / as sysdba
 
+alter user scott account unlock
+conn scott/tiger</code></pre><h3 id="2-创建表空间"><a href="#2-创建表空间" class="headerlink" title="2.创建表空间"></a>2.创建表空间</h3><pre><code>create tablespace XNYMPMS
+logging 
+datafile &apos;D:\oracle\data\XNYMPMS.dbf&apos; 
+size 50m 
+autoextend on 
+next 50m maxsize 20480m 
+extent management local;</code></pre><h3 id="（3-删除用户以及其数据）"><a href="#（3-删除用户以及其数据）" class="headerlink" title="（3.删除用户以及其数据）"></a>（3.删除用户以及其数据）</h3><pre><code>drop user qyepc cascade;</code></pre><h3 id="4-创建用户"><a href="#4-创建用户" class="headerlink" title="4.创建用户"></a>4.创建用户</h3><pre><code>create user XNYMPMS identified by XNYMPMS default tablespace XNYMPMS;
+create user qyepc identified by qyepc;</code></pre><h3 id="5-赋予权限"><a href="#5-赋予权限" class="headerlink" title="5.赋予权限"></a>5.赋予权限</h3><pre><code>grant connect,resource,dba to XNYMPMS; </code></pre><h3 id="6-cmd下导入oracle的dmp文件"><a href="#6-cmd下导入oracle的dmp文件" class="headerlink" title="6.cmd下导入oracle的dmp文件"></a>6.cmd下导入oracle的dmp文件</h3><pre><code>imp qyepc/qyepc@localhost/orcl file=&quot;qyepc20190730.DMP&quot; full=y;</code></pre><h3 id="修改dbf文件路径"><a href="#修改dbf文件路径" class="headerlink" title="修改dbf文件路径"></a>修改dbf文件路径</h3><pre><code>sys as sysdba</code></pre><p>关闭数据库</p>
+<pre><code>shutdown immediate;</code></pre><p>以mount方式启动数据库</p>
+<pre><code>startup mount;</code></pre><p>修改dbf文件路径</p>
+<pre><code>alter database rename file &apos;D:\oracletableplace\XNYMPMS.DBF&apos; to &apos;D:\oracle\oradata\orcl\XNYMPMS.dbf&apos;;</code></pre><p>打开数据库</p>
+<pre><code>alter database open;</code></pre><h2 id="oracle默认排序"><a href="#oracle默认排序" class="headerlink" title="oracle默认排序"></a>oracle默认排序</h2><p>Oracle查询以堆读取数据 结果无序  rowid 可能会有排序的假象</p>
+<h2 id="dual"><a href="#dual" class="headerlink" title="dual"></a>dual</h2><p>伪表 只有一行一列DUMMY 数据为VERCHAR2(1) ‘X’   为了让select语句完整 符合语法规则</p>
+<pre><code>select 1+2 from dual</code></pre><h2 id="修改密码"><a href="#修改密码" class="headerlink" title="修改密码"></a>修改密码</h2><h2 id="忘记密码"><a href="#忘记密码" class="headerlink" title="忘记密码"></a>忘记密码</h2><h3 id="windows"><a href="#windows" class="headerlink" title="windows"></a>windows</h3><p>1.忘记system 和sys密码 但用操作系统验证sqlplus / as sysdba能够登陆<br>    登陆后直接修改密码 解锁账户<br>2.忘记system 和sys密码（只忘记一个 用另一个改密码）且操作系统为家庭版（无本地策略组）、设为NTS 操作系统验证仍然无权限<br>管理员cmd下</p>
+<pre><code>orapwd file=安装路径\database\PWDorcl.ora password=orcl force=y nosysdba=n</code></pre><p>修改密码</p>
+<pre><code>alter user system identified by orcl</code></pre><p>解锁账户</p>
+<pre><code>alter user system account unlock</code></pre><h3 id="linux"><a href="#linux" class="headerlink" title="linux"></a>linux</h3><p>如果忘记密码 可以登陆oracle用户（windows本地策略组也有） 进行操作系统验证<br>也可以重置密码</p>
+<pre><code>orapwd file=安装路径\dbs\ORAPWorcl password=orcl force=y nosysdba=n</code></pre>
       
     </div>
     
@@ -509,8 +519,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/blog/2019/09/21/mysql/SQL索引失效/" rel="next" title="SQL索引失效">
-                <i class="fa fa-chevron-left"></i> SQL索引失效
+              <a href="/blog/2019/09/21/oracle/导入导出/" rel="next" title="导入导出">
+                <i class="fa fa-chevron-left"></i> 导入导出
               </a>
             
           </div>
@@ -519,8 +529,8 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/blog/2019/09/21/MyBatis/xml文件转义/" rel="prev" title="xml文件转义">
-                xml文件转义 <i class="fa fa-chevron-right"></i>
+              <a href="/blog/2019/09/21/JS及Jquery/DOM对象/" rel="prev" title="DOM对象">
+                DOM对象 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -603,7 +613,7 @@
               
                 <a href="/blog/archives/">
               
-                  <span class="site-state-item-count">28</span>
+                  <span class="site-state-item-count">29</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -625,7 +635,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/blog/tags/index.html">
-                  <span class="site-state-item-count">30</span>
+                  <span class="site-state-item-count">31</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>

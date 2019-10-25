@@ -4,27 +4,27 @@ date: 2019-09-21 00:00:00
 tags: [DOM对象]
 categories: JS及Jquery
 ---
-# 获取DOM对象
+# 获取DOM对象s
 
-document.getElementById("ID的值");
+document.getElementById(&quot;ID的值&quot;);
 
-document.getElementsByClassName("类名")
+document.getElementsByClassName(&quot;类名&quot;)
 
-document.getElementsByTagName("标签名");
+document.getElementsByTagName(&quot;标签名&quot;);
 
-document.getElementsByName("name属性的值")
+document.getElementsByName(&quot;name属性的值&quot;)
 
 
 
-document.querySelector("选择器");//只能获取第一个
+document.querySelector(&quot;选择器&quot;);//只能获取第一个
 
-document.querySelectorAll("选择器")//获取所有的，返回的数组
+document.querySelectorAll(&quot;选择器&quot;)//获取所有的，返回的数组
 
 # 创建DOM对象
 
-var div = document.createElement("标签名");//返回的事<div></div>
+var div = document.createElement(&quot;标签名&quot;);//返回的&lt;div&gt;&lt;/div&gt;
 
-var text = document.createTextNode("aa")//创建了一个"aa"字符串
+var text = document.createTextNode(&quot;aa&quot;)//创建了一个&quot;aa&quot;字符串
 
 # 操作DOM对象的属性
 
@@ -38,11 +38,11 @@ var text = document.createTextNode("aa")//创建了一个"aa"字符串
 
 ## 第二种方式
 
-获取属性值：dom对象.getAttribute("属性名")
+获取属性值：dom对象.getAttribute(&quot;属性名&quot;)
 
-设置属性值:dom对象.setAttribute("属性名","属性值");
+设置属性值：dom对象.setAttribute(&quot;属性名&quot;,&quot;属性值&quot;);
 
-删除属性值:dom对象.removeAttribute("属性名");
+删除属性值：dom对象.removeAttribute(&quot;属性名&quot;);
 
 ## 总结
 
@@ -54,9 +54,9 @@ var text = document.createTextNode("aa")//创建了一个"aa"字符串
 
 ## 超链接当作按钮使用时候的注意事项
 
-href=""默认会刷新当前页面
+href=&quot;&quot;默认会刷新当前页面
 
-href="#"就会滚动到页面的最上面
+href=&quot;#&quot;就会滚动到页面的最上面
 
 所以我们的目标是点击超链接的时候什么都不做
 
@@ -72,9 +72,9 @@ href="#"就会滚动到页面的最上面
 
 # 通过JS操作样式
 
-1.对象名.style.样式名="值"
+1.对象名.style.样式名=&quot;值&quot;
 
-2.对象名.className = "类名";
+2.对象名.className = &quot;类名&quot;;
 
 
 # 总结
@@ -100,7 +100,7 @@ ESMAScript(基本语法)+BOM+DOM
 
 # 1.通过JS操作标签
 
-##1.1获取标签对象
+## 1.1获取标签对象
 
 
 
@@ -121,7 +121,7 @@ dom对象.属性名 = "值";
 
 
 
-##1.3操作标签对象的特殊属性innerHTML
+## 1.3操作标签对象的特殊属性innerHTML
 
 ```
 dom对象.innerHTML = "html代码";
@@ -156,13 +156,13 @@ dom对象.innerHTML = "html代码";
 
 因为这段代码可能非常长，比如:
 
-<button onclick="for(var i=0;i<100; i++){console.log(i);}" type="button">孔老</button>
+<button onclick=&quot;for(var i=0;i<100; i++){console.log(i);}&quot; type=&quot;button&quot;>孔老</button>
 
 如果以属性的形式编写代码，特别不方便阅读，所以把代码抽取到方法中，然后调用方法就好了
 
-<button onclick="aa()" type="button">孔老</button>
+<button onclick=&quot;aa()&quot; type=&quot;button&quot;>孔老</button>
 
-##2.3绑定事件的第二种方式
+## 2.3绑定事件的第二种方式
 
 通过DOM对象来绑定
 
