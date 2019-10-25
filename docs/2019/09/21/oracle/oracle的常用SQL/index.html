@@ -570,8 +570,8 @@ select PARTY_ID,wmsys.wm_concat(funcname) 菜单名
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/blog/2019/09/21/JS及Jquery/ajax参数/" rel="next" title="ajax参数">
-                <i class="fa fa-chevron-left"></i> ajax参数
+              <a href="/blog/2019/09/21/oracle/入门操作/" rel="next" title="入门操作">
+                <i class="fa fa-chevron-left"></i> 入门操作
               </a>
             
           </div>
@@ -580,8 +580,8 @@ select PARTY_ID,wmsys.wm_concat(funcname) 菜单名
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/blog/2019/09/25/redis/Redis的使用/" rel="prev" title="Redis的使用">
-                Redis的使用 <i class="fa fa-chevron-right"></i>
+              <a href="/blog/2019/09/21/JS及Jquery/DOM对象/" rel="prev" title="DOM对象">
+                DOM对象 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -934,7 +934,6 @@ select PARTY_ID,wmsys.wm_concat(funcname) 菜单名
 
 
   <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
-  <script src="//unjkp.com/valine/dist/Valine.min.js"></script>
   <script src="/blog/js/src/Valine.min.js"></script>
 
   <script type="text/javascript">
@@ -954,6 +953,7 @@ select PARTY_ID,wmsys.wm_concat(funcname) 菜单名
         guest_info:guest,
         pageSize:'10' || 10,
     });
+    //增加以下六行代码去除 power by valine
     var infoEle = document.querySelector('#comments .info');
     if (infoEle && infoEle.childNodes && infoEle.childNodes.length > 0){
       infoEle.childNodes.forEach(function(item) {

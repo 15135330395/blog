@@ -499,8 +499,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/blog/2019/09/21/tomcat/指定端口、修改jdk/" rel="next" title="指定端口、修改jdk">
-                <i class="fa fa-chevron-left"></i> 指定端口、修改jdk
+              <a href="/blog/2019/09/21/mysql/mysql常用sql语句/" rel="next" title="mysql常用sql语句">
+                <i class="fa fa-chevron-left"></i> mysql常用sql语句
               </a>
             
           </div>
@@ -509,8 +509,8 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/blog/2019/09/21/tomcat/SSL证书和https协议/" rel="prev" title="SSL证书和https协议">
-                SSL证书和https协议 <i class="fa fa-chevron-right"></i>
+              <a href="/blog/2019/09/21/JS及Jquery/ajax参数/" rel="prev" title="ajax参数">
+                ajax参数 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -863,7 +863,6 @@
 
 
   <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
-  <script src="//unjkp.com/valine/dist/Valine.min.js"></script>
   <script src="/blog/js/src/Valine.min.js"></script>
 
   <script type="text/javascript">
@@ -883,6 +882,7 @@
         guest_info:guest,
         pageSize:'10' || 10,
     });
+    //增加以下六行代码去除 power by valine
     var infoEle = document.querySelector('#comments .info');
     if (infoEle && infoEle.childNodes && infoEle.childNodes.length > 0){
       infoEle.childNodes.forEach(function(item) {

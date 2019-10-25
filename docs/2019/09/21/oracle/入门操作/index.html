@@ -529,8 +529,8 @@ create user qyepc identified by qyepc;</code></pre><h3 id="5-赋予权限"><a hr
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/blog/2019/09/21/JS及Jquery/DOM对象/" rel="prev" title="DOM对象">
-                DOM对象 <i class="fa fa-chevron-right"></i>
+              <a href="/blog/2019/09/21/oracle/oracle的常用SQL/" rel="prev" title="oracle的常用SQL">
+                oracle的常用SQL <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -883,7 +883,6 @@ create user qyepc identified by qyepc;</code></pre><h3 id="5-赋予权限"><a hr
 
 
   <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
-  <script src="//unjkp.com/valine/dist/Valine.min.js"></script>
   <script src="/blog/js/src/Valine.min.js"></script>
 
   <script type="text/javascript">
@@ -903,6 +902,7 @@ create user qyepc identified by qyepc;</code></pre><h3 id="5-赋予权限"><a hr
         guest_info:guest,
         pageSize:'10' || 10,
     });
+    //增加以下六行代码去除 power by valine
     var infoEle = document.querySelector('#comments .info');
     if (infoEle && infoEle.childNodes && infoEle.childNodes.length > 0){
       infoEle.childNodes.forEach(function(item) {

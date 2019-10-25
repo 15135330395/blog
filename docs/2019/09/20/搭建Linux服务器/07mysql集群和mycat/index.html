@@ -782,8 +782,8 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/blog/2019/09/21/常用加密/MD5、SHA1、SHA256/" rel="prev" title="MD5、SHA1、SHA256">
-                MD5、SHA1、SHA256 <i class="fa fa-chevron-right"></i>
+              <a href="/blog/2019/09/21/tomcat/指定端口、修改jdk/" rel="prev" title="指定端口、修改jdk">
+                指定端口、修改jdk <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -1136,7 +1136,6 @@
 
 
   <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
-  <script src="//unjkp.com/valine/dist/Valine.min.js"></script>
   <script src="/blog/js/src/Valine.min.js"></script>
 
   <script type="text/javascript">
@@ -1156,6 +1155,7 @@
         guest_info:guest,
         pageSize:'10' || 10,
     });
+    //增加以下六行代码去除 power by valine
     var infoEle = document.querySelector('#comments .info');
     if (infoEle && infoEle.childNodes && infoEle.childNodes.length > 0){
       infoEle.childNodes.forEach(function(item) {

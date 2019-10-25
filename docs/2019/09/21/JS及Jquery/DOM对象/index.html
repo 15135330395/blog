@@ -570,8 +570,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/blog/2019/09/21/oracle/入门操作/" rel="next" title="入门操作">
-                <i class="fa fa-chevron-left"></i> 入门操作
+              <a href="/blog/2019/09/21/oracle/oracle的常用SQL/" rel="next" title="oracle的常用SQL">
+                <i class="fa fa-chevron-left"></i> oracle的常用SQL
               </a>
             
           </div>
@@ -580,8 +580,8 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/blog/2019/09/21/mysql/mysql常用sql语句/" rel="prev" title="mysql常用sql语句">
-                mysql常用sql语句 <i class="fa fa-chevron-right"></i>
+              <a href="/blog/2019/09/21/mysql/mysql8.0的url/" rel="prev" title="mysql8.0的url">
+                mysql8.0的url <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -934,7 +934,6 @@
 
 
   <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
-  <script src="//unjkp.com/valine/dist/Valine.min.js"></script>
   <script src="/blog/js/src/Valine.min.js"></script>
 
   <script type="text/javascript">
@@ -954,6 +953,7 @@
         guest_info:guest,
         pageSize:'10' || 10,
     });
+    //增加以下六行代码去除 power by valine
     var infoEle = document.querySelector('#comments .info');
     if (infoEle && infoEle.childNodes && infoEle.childNodes.length > 0){
       infoEle.childNodes.forEach(function(item) {

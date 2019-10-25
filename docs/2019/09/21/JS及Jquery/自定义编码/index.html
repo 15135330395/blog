@@ -507,8 +507,8 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/blog/2019/09/21/JS及Jquery/IE控制台报错addEventListener/" rel="prev" title="IE控制台报错addEventListener">
-                IE控制台报错addEventListener <i class="fa fa-chevron-right"></i>
+              <a href="/blog/2019/09/21/JS及Jquery/监听回车事件/" rel="prev" title="监听回车事件">
+                监听回车事件 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -836,7 +836,6 @@
 
 
   <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
-  <script src="//unjkp.com/valine/dist/Valine.min.js"></script>
   <script src="/blog/js/src/Valine.min.js"></script>
 
   <script type="text/javascript">
@@ -856,6 +855,7 @@
         guest_info:guest,
         pageSize:'10' || 10,
     });
+    //增加以下六行代码去除 power by valine
     var infoEle = document.querySelector('#comments .info');
     if (infoEle && infoEle.childNodes && infoEle.childNodes.length > 0){
       infoEle.childNodes.forEach(function(item) {

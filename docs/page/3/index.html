@@ -297,7 +297,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://15135330395.github.io/blog/blog/2019/09/21/常用加密/MD5、SHA1、SHA256/">
+    <link itemprop="mainEntityOfPage" href="https://15135330395.github.io/blog/blog/2019/09/21/tomcat/指定端口、修改jdk/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="安逸">
@@ -316,7 +316,7 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/blog/2019/09/21/常用加密/MD5、SHA1、SHA256/" itemprop="url">MD5、SHA1、SHA256</a></h1>
+                <a class="post-title-link" href="/blog/2019/09/21/tomcat/指定端口、修改jdk/" itemprop="url">指定端口、修改jdk</a></h1>
         
 
         <div class="post-meta">
@@ -351,8 +351,8 @@
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/blog/categories/常用加密/" itemprop="url" rel="index">
-                    <span itemprop="name">常用加密</span>
+                  <a href="/blog/categories/tomcat/" itemprop="url" rel="index">
+                    <span itemprop="name">tomcat</span>
                   </a>
                 </span>
 
@@ -369,8 +369,8 @@
                 <span class="post-meta-item-icon">
                   <i class="fa fa-comment-o"></i>
                 </span>
-                <a href="/blog/2019/09/21/常用加密/MD5、SHA1、SHA256/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count valine-comment-count" data-xid="/blog/2019/09/21/常用加密/MD5、SHA1、SHA256/" itemprop="commentCount"></span>
+                <a href="/blog/2019/09/21/tomcat/指定端口、修改jdk/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count valine-comment-count" data-xid="/blog/2019/09/21/tomcat/指定端口、修改jdk/" itemprop="commentCount"></span>
                 </a>
               </span>
             
@@ -378,7 +378,7 @@
 
           
           
-             <span id="/blog/2019/09/21/常用加密/MD5、SHA1、SHA256/" class="leancloud_visitors" data-flag-title="MD5、SHA1、SHA256">
+             <span id="/blog/2019/09/21/tomcat/指定端口、修改jdk/" class="leancloud_visitors" data-flag-title="指定端口、修改jdk">
                <span class="post-meta-divider">|</span>
                <span class="post-meta-item-icon">
                  <i class="fa fa-eye"></i>
@@ -403,7 +403,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  554 字
+                  0 字
                 </span>
               
 
@@ -419,7 +419,7 @@
                   <span class="post-meta-item-text">阅读时长 &asymp;</span>
                 
                 <span title="阅读时长">
-                  3 分钟
+                  1 分钟
                 </span>
               
             </div>
@@ -442,12 +442,11 @@
       
         
           
-          以下是对数据加密的几种方法 MD5,sha1,sha256;  
-123456789101112131415161718192021222324252627282930313233343536373839404142434445464748495051525354555657585960616263
-          ...
+          
+          
           <!--noindex-->
           <div class="post-button text-center">
-            <a class="btn" href="/blog/2019/09/21/常用加密/MD5、SHA1、SHA256/#more" rel="contents">
+            <a class="btn" href="/blog/2019/09/21/tomcat/指定端口、修改jdk/#more" rel="contents">
               阅读全文 &raquo;
             </a>
           </div>
@@ -2465,7 +2464,6 @@ CentOS-7-x86_64-LiveGNOME-1810.
 
 
   <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
-  <script src="//unjkp.com/valine/dist/Valine.min.js"></script>
   <script src="/blog/js/src/Valine.min.js"></script>
 
   <script type="text/javascript">
@@ -2485,6 +2483,7 @@ CentOS-7-x86_64-LiveGNOME-1810.
         guest_info:guest,
         pageSize:'10' || 10,
     });
+    //增加以下六行代码去除 power by valine
     var infoEle = document.querySelector('#comments .info');
     if (infoEle && infoEle.childNodes && infoEle.childNodes.length > 0){
       infoEle.childNodes.forEach(function(item) {

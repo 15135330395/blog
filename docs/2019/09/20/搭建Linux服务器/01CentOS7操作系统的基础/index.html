@@ -1050,7 +1050,6 @@ who am  i</code></pre><h1 id="CentOS7查看和关闭防火墙"><a href="#CentOS7
 
 
   <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
-  <script src="//unjkp.com/valine/dist/Valine.min.js"></script>
   <script src="/blog/js/src/Valine.min.js"></script>
 
   <script type="text/javascript">
@@ -1070,6 +1069,7 @@ who am  i</code></pre><h1 id="CentOS7查看和关闭防火墙"><a href="#CentOS7
         guest_info:guest,
         pageSize:'10' || 10,
     });
+    //增加以下六行代码去除 power by valine
     var infoEle = document.querySelector('#comments .info');
     if (infoEle && infoEle.childNodes && infoEle.childNodes.length > 0){
       infoEle.childNodes.forEach(function(item) {
