@@ -1,0 +1,80 @@
+---
+title: 简单操作
+date: 2019-09-21 00:00:00
+tags: [简单操作]
+categories: JS及Jquery
+---
+
+
+### js去掉换行
+str=str.replace(/^\n+|\n+$/g,&quot;&quot;);
+
+### 日期的正则表达式
+yyyy-MM-dd	/^[1-2][0-9][0-9][0-9]-[0-1]{0,1}[0-9]-[0-3]{0,1}[0-9]$/
+yyyy/M/dd	/^[1-2][0-9][0-9][0-9]\/[0-1]{0,1}[0-9]\/[0-3]{0,1}[0-9]$/
+
+### 正则
+必填或不为空
+java：\S+
+js：/\S+/
+excel导入验证规则会用到 
+!!正则验证数据格式   !!复杂验证 验证内容
+ （还可能用到复杂的验证  比如导入的数据 有效期时间必须大于导入时间   还可能支持同时多种验证 先验证时间格式 后比较时间）
+科学计数法的数据（比较准确）
+^((-?\\d+.\\d*)[Ee]{1}(-?\\d+))$  （0.e0的数据）
+
+### 去掉字符串中所有的空格或单引号
+str=str.replace(/\s/g,&quot;&quot;);
+b= b.replace(/\'/g, &quot;&quot;);
+
+### 获得年龄
+function getAge(str){   
+	    var r = str.match(/^(\d{1,4})(-|\/)(\d{1,2})\2(\d{1,2})$/);     
+	    if(r==null)return false;     
+	    var d= new Date(r[1],r[3]-1,r[4]);
+	    if(d.getFullYear()==r[1]&&(d.getMonth()+1)==r[3]&&d.getDate()==r[4]){   
+	        var date = new Date();
+	        var Y = date.getFullYear() - r[1];
+	        var M = date.getMonth() + 1 - r[3];
+	        var D = date.getDate();
+	        if(parseInt(D) - parseInt(r[4]) < 0){
+	            M--;
+	            if(M<0){
+	                Y--;
+	                M = 11;
+	            }
+	        }
+	        if(M<0){
+	            Y--;
+	            M = 11;
+	        }
+	        return M?(Y+&quot;岁零&quot;+M+&quot;月&quot;):(Y+&quot;岁&quot;);   
+	    }   
+	    return(&quot;日期格式错误！&quot;);   
+	}
+
+### 获得天数差
+
+### 寻找第三方接口 判断法定节假日、调休日、周末、工作日
+
+### 字符串 数组相互转换
+1. 数组转字符串：
+	var a, b;
+	a = new Array(0,1,2,3,4);
+	b = a.join(&quot;,&quot;);
+2. 字符串转数组：
+	var s = &quot;abc,abcd,aaa&quot;;
+	ss = s.split(&quot;,&quot;);// 在每个逗号处进行分解  [&quot;abc&quot;, &quot;abcd&quot;, &quot;aaa&quot;]
+
+	var s1 = &quot;helloworld&quot;;
+	ss1 = s1.split('');  // 每个字符分解 [&quot;h&quot;, &quot;e&quot;, &quot;l&quot;, &quot;l&quot;, &quot;o&quot;, &quot;w&quot;, &quot;o&quot;, &quot;r&quot;, &quot;l&quot;, &quot;d&quot;]
+
+### JSON的 新增 修改 删除
+
+### 对象的 新增 修改 删除
+
+删除
+    delete 对象.属性
+### 数组的 新增 修改 删除
+
+### JS中浮点型小数计算误差
