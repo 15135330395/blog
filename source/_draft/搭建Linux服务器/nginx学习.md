@@ -1,10 +1,4 @@
----
-title: 08nginx集群
-date: 2020-02-06 16:39:47
-tags: [Linux,服务器,nginx集群]
-categories: 搭建Linux服务器
----
-nginx是一款高性能的http 服务器/反向代理服务器及电子邮件（IMAP/POP3）代理服务器。官方测试nginx能够支支撑5万并发链接，并且cpu、内存等资源消耗却非常低，运行非常稳定。
+nginx是一款高性能的http 服务器/反向代理服务器及电子邮件（IMAP/POP3）代理服务器。官方测试nginx能够支撑5万并发链接，并且cpu、内存等资源消耗却非常低，运行非常稳定。
 
 常见反向代理服务器：
 
@@ -24,8 +18,8 @@ Nginx、lvs、F5（硬件）、haproxy
 优点：
 占内存小，可以实现高并发连接、处理响应快。
 可以实现http服务器、虚拟主机、反向代理、负载均衡。
-nginx配置简单
-可以不暴露真实服务器IP地址
+nginx配置简单。
+可以不暴露真实服务器IP地址。
 
 
 ## 1.安装
@@ -95,9 +89,8 @@ make install
 
 ## 2.配置文件和常用命令
 
-命令
+命令（安装包安装需要设为服务 或 在安装目录中运行）
 ```
-//服务（yum安装）
 //开机自启动
 systemctl enable nginx.service
 // 启动服务器
@@ -109,7 +102,7 @@ nginx -s stop
 // 检测配置文件
 nginx -t
 // 重启服务器/重新加载配置文件
-./nginx -s reload
+nginx -s reload
 ```
 配置文件
 ```
@@ -121,7 +114,7 @@ vim /etc/nginx/conf.d/default.conf
 # 指定可以运行Nginx服务器的用户或组 默认由nobody账户运行
 #user  nobody;
 # 要开启的最大进程数 实现并发处理服务的关键 
-# 每个Nginx进程平均耗费10M~12M内存。建议指定和CPU的数量一致即可。（或设为auto）
+# 每个Nginx进程平均耗费10M~12M内存。建议指定和CPU的数量一致即可。（也可设为auto）
 worker_processes  1;
 
 # 错误日志的存放路径 日志输出级别有debug（详细），info，notice，warn，error，erit（最少）可供选择
@@ -279,7 +272,7 @@ tomcat9  8006 8010 8081
 修改配置文件
 
 ```
-#定义两个虚拟主机 监听80端口 指向8080和8081
+#定义两个虚拟主机 监听80端口 指向实际服务器的8080和8081
 server {
 	listen       80;
 	server_name  *.test1.com;
