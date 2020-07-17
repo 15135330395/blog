@@ -111,7 +111,7 @@ tomcat控制台报错信息是 org.apache.axis2.transport.http.CommonsHTTPTransp
 传输数据量过大 50到100条数据 但主要是大段的文字 
 （Post提交本身对于参数的长度没有限制，HTTP协议也没有限制）
 tomcat有限制
-![不同版本配置](SSL证书和https协议/1.jpg)
+![不同版本配置](source/_posts/soft/tomcat/SSL证书和https协议/1.jpg)
 缺省的情况下是maxPostSize="2097152" 2M 单位是Byte
 ### 解决办法
 1.保存时 去掉没用的数据
