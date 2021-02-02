@@ -55,7 +55,36 @@ categories: maven
 
 
 ## 开发工具中修改maven配置
-idea中 setting配置 maven安装路径
+idea中 Setting Build,Execution,Deployment BuildTools Maven 选择maven安装路径 修改配置文件 修改库路径
+eclipse中 Preferences maven UserSettings 设置配置文件 并更新配置 刷新库路径
+
+## 通过jar包导入本地maven库
+mvn install:install-file -Dfile=文件路径 -DgroupId=标签中的groupId -DartifactId=标签中的artifactId -Dversion=标签中的version [-Dclassifier=标签中的classifier 没有就去掉] -Dpackaging=jar
+批量处理目前可以用excel [参考](./maven/mvn.xlsx)
+
+
+理论上可以通过pom.xml文件中的
+<dependency>
+    <groupId>mysql</groupId>
+    <artifactId>mysql-connector-java</artifactId>
+    <version>8.0.15</version>
+</dependency>
+动态生成语句并执行(不论是全jar包 还是别人的repository文件夹 只是文件路径不同 repository的路径可以通过标签值拼接)
+groupId有”.“就增加文件夹  artifactId有”.“不增加文件夹 version是一层文件夹
+文件名是artifactId-version[-classifier].jar
+
+maven 安装本地jar包，通过install插件的install-file mojo进行工作，具体可通过如下命令进行查看
+mvn help:describe -Dplugin=install -Ddetail
+
+[参考 maven-本地安装jar包](https://www.cnblogs.com/luohaonan/p/10294313.html)
+
+## 删除maven库中的.lastUpdated文件
+    .lastUpdated为下载失败的文件
+cmd
+进入repository文件夹
+for /r %i in (*.lastUpdated) do del %i 
+for /r %i in (m2e-lastUpdated.properties) do del %i 
+for /r %i in (me××.xml) do del %i 
 
 ## 新建maven项目
 ### pom文件

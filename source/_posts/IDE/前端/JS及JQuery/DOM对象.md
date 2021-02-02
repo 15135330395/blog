@@ -133,7 +133,7 @@ dom对象.innerHTML = "html代码";
 
 ## 2.1绑定事件的第一种方式
 
-```javascript
+```html
 <button onclick="console.log('我被点击了');" type="button">孔老</button>
 ```
 
@@ -141,17 +141,17 @@ dom对象.innerHTML = "html代码";
 
 ## 2.2绑定事件的第一种方式变形
 
-```javascript
-		<script>
-            //把代码抽取到方法中
-			function aa(){
-				for(var i=0; i<100; i++){
-					console.log(i);
-				}
-			}
-			
-		</script>
-		<button onclick="aa()" type="button">孔老</button>
+```html
+<script>
+    //把代码抽取到方法中
+    function aa(){
+        for(var i=0; i<100; i++){
+            console.log(i);
+        }
+    }
+</script>
+
+<button onclick="aa()" type="button">孔老</button>
 ```
 
 因为这段代码可能非常长，比如:
@@ -203,3 +203,4 @@ dom对象.innerHTML = "html代码";
 		}
 	</script>
 </body>
+```

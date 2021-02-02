@@ -1,3 +1,10 @@
+---
+title: nginx学习
+date: 2019-09-21 00:00:00
+tags: [nginx]
+categories: 服务器
+---
+
 nginx是一款高性能的http 服务器/反向代理服务器及电子邮件（IMAP/POP3）代理服务器。官方测试nginx能够支撑5万并发链接，并且cpu、内存等资源消耗却非常低，运行非常稳定。
 
 常见反向代理服务器：
@@ -87,6 +94,11 @@ make install
 2.错误提示：./configure: error: the HTTP cache module requires md5 functions from OpenSSL library. 
 解决：yum -y install openssl openssl-devel
 
+安装时增加SSL加密功能
+./configure --prefix=/usr/local/nginx --with-http_ssl_module
+
+[给已经编译安装了的nginx添加http_ssl_module模块](https://blog.51cto.com/1121914451/1795894)
+
 ## 2.配置文件和常用命令
 
 命令（安装包安装需要设为服务 或 在安装目录中运行）
@@ -125,10 +137,14 @@ worker_processes  1;
 # 指定进程pid的存储文件位置和名称 默认logs/nginx.pid
 #pid        logs/nginx.pid;
 
+
+从配置文件开始到 events 块之间的内容，主要会设置一些影响 nginx 服务器整体运行的配置指令，主 要包括配置运行 Nginx 服务器的用户（组）、允许生成的 work process 数，进程 PID 存放路径、日志 存放路径和类型以及配置文件的引入等。
+这是Nginx 服务器并发处理服务的关键配置，worker_processes 值越大，可以支持的并发处理量也越 多，但是会受到硬件软件等设备的制约。
+
 #全局块结束
 
 #events块开始
-# 设定Nginx的工作模式（use）及连接数上限
+# 设定Nginx的工作模式（use）及连接数上限 配置对nginx影响较大，实际应用中要灵活配置。
 events {
 	# 定义Nginx每个进程的最大连接数，默认是1024
     worker_connections  1024;
@@ -261,6 +277,12 @@ http {
 
 #http块结束
 ```
+= 严格匹配。如果这个查询匹配，那么将停止搜索并立即处理此请求。
+~ 为区分大小写匹配(可用正则表达式)
+!~为区分大小写不匹配
+~* 为不区分大小写匹配(可用正则表达式)
+!~*为不区分大小写不匹配
+^~ 如果把这个前缀用于一个常规字符串,那么告诉nginx 如果路径匹配那么不测试正则表达式。
 
 ## 3.反向代理
 
@@ -271,7 +293,7 @@ tomcat9  8006 8010 8081
 
 修改配置文件
 
-```
+``` 
 #定义两个虚拟主机 监听80端口 指向实际服务器的8080和8081
 server {
 	listen       80;
@@ -352,3 +374,43 @@ upstream backserver {
 	server 192.168.1.112:8080; 
 	server 192.168.1.112:8081; 
 } 
+
+## 配置场景
+### 限制ip访问后台
+```
+server {
+    listen       80;
+    server_name  localhost;
+    
+    #charset koi8-r;
+    
+    #access_log  logs/host.access.log  main;
+    
+    location /governor/ {
+        root   html;
+        index  index.html index.htm;
+        proxy_pass   http://127.0.0.1:8080/governor/;
+        allow  10.91.11.43;
+        deny  all;
+    }
+    
+    location /erp/ {
+        proxy_pass   http://127.0.0.1:8080/erp/;
+    }
+    
+    location / {
+        root   html;
+        index  index.html index.htm;
+    }
+}
+```
+### vue路由
+
+
+### 动静分离
+移动端、静态文件nginx直接访问 不通过应用服务器
+
+
+### 本地开发移动端跨域
+
+### 服务器集群保持session

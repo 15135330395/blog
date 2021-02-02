@@ -22,23 +22,27 @@ categories: tomcat
 ### 2.应用证书到Tomcat（SSL证书文件后缀可能是.keystore .pfx .jks 不影响配置 可以互相转换）
 打开 Tomcat 配置文件 conf\server.xml
 取消注释，并添加两个属性 keystoreFile，keystorePass。
-	8.5之前
-	<Connector port="8443" protocol="HTTP/1.1" SSLEnabled="true"
-		maxThreads="150" scheme="https" secure="true" clientAuth="false" sslProtocol="TLS"
-		keystoreFile="D:/生成地址.keystore" keystorePass="之前的密钥" />
-	8.5之后
-	<Connector port="8443" protocol="org.apache.coyote.http11.Http11NioProtocol" maxThreads="150" SSLEnabled="true">
-		<SSLHostConfig>
-			<Certificate certificateKeystoreFile="conf/SHA256withRSA__.powerchina.cn.jks"
-				certificateKeystorePassword="dianjian123" type="RSA" />
-		</SSLHostConfig>
-	</Connector>
+8.5之前
+```xml
+<Connector port="8443" protocol="HTTP/1.1" SSLEnabled="true"
+    maxThreads="150" scheme="https" secure="true" clientAuth="false" sslProtocol="TLS"
+    keystoreFile="D:/生成地址.keystore" keystorePass="之前的密钥" />
+```
+8.5之后
+```xml
+<Connector port="8443" protocol="org.apache.coyote.http11.Http11NioProtocol" maxThreads="150" SSLEnabled="true">
+    <SSLHostConfig>
+        <Certificate certificateKeystoreFile="conf/SHA256withRSA__.p.c.jks"
+            certificateKeystorePassword="123" type="RSA" />
+    </SSLHostConfig>
+</Connector>
+```
 	(阿里云申请的配置keystoreFile是PFX证书文件地址，keystorePass是阿里云的订单号，keystoreType直接写PKCS12)
 ### 3.测试
 启动tomcat并访问https://127.0.0.1:8443
-如果把所有的8443改为443 则访问时 不需要加端口 即https://127.0.0.1
+如果把所有的8443改为443 则访问时 不需要加端口(https默认443) 即https://127.0.0.1
 ### 4.使用自己生成的证书会遇到几个问题
-浏览器会对 HTTPS 使用危险标识。(我们开启 HTTPS 本意是为了更安全，增加用户信心。但是浏览器使用危险标识会适得其反，吓跑用户。)
+浏览器会对 HTTPS 使用危险标识。(开启 HTTPS 本意是为了更安全，增加用户信心。但是浏览器使用危险标识会适得其反，吓跑用户。)
 浏览器默认不会加载非HTTPS域名下的javascript
 移动设备显示页面空白(手机浏览器打开页面，也会像桌面浏览器一样弹出是否加载不受信任的页面，在微信中打开则会一片空白)
 可以将证书的详细信息页面导出（复制到文件），导入浏览器（Internet选项——内容——证书——受信任的根证书颁发机构——导入证书）
@@ -72,7 +76,7 @@ tomcat /conf/web.xml 中的 </welcome-file-list> 后面加上以下内容
 ### 当时情况
 1.必须使用IE浏览器
 2.必须兼容IE7
-3.必须使用特定域名访问（兼容性通过主域名判断 即 powerchina.cn）
+3.必须使用特定域名访问（兼容性通过主域名判断 如 qq.com）
 
 ### 解决办法
 强制突破IE浏览器兼容性视图
@@ -111,7 +115,7 @@ tomcat控制台报错信息是 org.apache.axis2.transport.http.CommonsHTTPTransp
 传输数据量过大 50到100条数据 但主要是大段的文字 
 （Post提交本身对于参数的长度没有限制，HTTP协议也没有限制）
 tomcat有限制
-![不同版本配置](source/_posts/soft/tomcat/SSL证书和https协议/1.jpg)
+![不同版本配置](SSL证书和https协议/1.jpg)
 缺省的情况下是maxPostSize="2097152" 2M 单位是Byte
 ### 解决办法
 1.保存时 去掉没用的数据
@@ -174,3 +178,13 @@ url中不允许有 |，{，}等特殊字符
 或
 
     encodeURIComponent()
+    
+不修改代码的办法（不建议使用）：
+tomcat/conf/server.xml 8080和8443端口后面加一句
+relaxedQueryChars="[]|{}^&#x5c;&#x60;&quot;&lt;&gt;"
+但是
+不推荐使用此系统属性。请改用连接器的relaxedPathChars和relaxedQueryChars属性。这些属性允许将更大范围的字符配置为有效。
+服务器即使在未编码的情况下也应允许由字符组成的字符串。这些字符通常会导致400状态。
+此属性的可接受的字符为：|，{ ，和}
+警告：使用此选项可能会使服务器暴露于CVE-2016-6816。
+如果未指定，null将使用默认值。

@@ -6,8 +6,7 @@ categories: 常用软件
 ---
 
 ## 激活
-（navicat-keygen-for-x64.zip）
-https://github.com/DoubleLabyrinth/navicat-keygen
+[navicat-keygen-for-x64.zip](https://github.com/DoubleLabyrinth/navicat-keygen)
 navicat-keygen.exe
 navicat-patcher.exe
 RegPrivateKey.pem

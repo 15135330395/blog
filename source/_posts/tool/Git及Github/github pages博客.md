@@ -9,9 +9,9 @@ categories: github
 git --version
 ### 2.安装node.js
 	安装版（记得勾选add path）
-	
+
 	免安装版（配置环境变量）
-	
+
 注意：npm是Node.js自带的模块包管理工具，跟node.exe位于同一文件夹。Hexo项目也是提供了命令行工具hexo.cmd。这个项目被所有的实例共享，Hexo一般应全局安装。它的hexo.cmd所在文件夹应被放入系统path变量中。
 node -v
 npm -v
@@ -20,6 +20,7 @@ npm -v
 	npm install hexo-cli -g
 hexo -v 该命令会显示hexo的版本及依赖的包。
 ### 4.创建blog文件夹
+
 ### 5.cmd命令  进入blog文件夹  初始化hexo
 	hexo init
 生成文件夹和文件
@@ -82,7 +83,7 @@ hexo clean 清除缓存和已经生成的public静态文件
 静态文件存放在public中
 （都可以改）
 ### 2d特效
-（https://www.simon96.online/2018/10/12/hexo-tutorial/）
+[参考](https://www.simon96.online/2018/10/12/hexo-tutorial/)
 将以下代码添加到主题配置文件_config.yml
 live2d:
   enable: true
@@ -106,7 +107,7 @@ live2d:
 安装模型。在命令行（即Git Bash）运行以下命令即可：npm install --save live2d-widget-model-<你喜欢的模型名字>
 hexo clean && hexo g && hexo s
 
-https://blog.csdn.net/u012195214/article/details/79204088
+[参考地址](https://blog.csdn.net/u012195214/article/details/79204088)
 
 ### 本地文件上传
 1.把主页配置文件_config.yml 里的post_asset_folder:这个选项设置为true
@@ -135,7 +136,8 @@ https://hexo.io/themes/ hexo的主题地址
 https://hexo.io/zh-cn/docs/ hexo的使用文档
 
 ## github搭建博客（VuePress）
-https://segmentfault.com/a/1190000015237352?utm_source=tag-newest
+[VuePress官方文档](https://vuepress.vuejs.org/)
+[VuePress从零开始搭建自己专属博客](https://segmentfault.com/a/1190000015237352?utm_source=tag-newest)
 ### 1.安装
 npm install -g vuepress
 ### 2.创建项目目录并初始化
